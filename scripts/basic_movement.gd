@@ -14,6 +14,16 @@ extends CharacterBody2D
 var overtime_gravity := 0.0
 var cayote_timer := 0.0
 
+# dictionary of booleans setting whether an upgrade has been unlocked or not
+var upgrades = {
+	"double_jump" = true
+}
+
+# dictionary of booleans setting whether a power is able to be used moment to moment
+var powers = {
+	"double_jump" = false
+}
+
 func _physics_process(delta):
 	# DEBUG
 	#print(cayote_timer)
@@ -44,7 +54,13 @@ func _physics_process(delta):
 		cayote_timer -= delta
 
 	# Only allow jumping when on the ground
-	if Input.is_action_just_pressed("jump") and cayote_timer > 0:
+	if Input.is_action_just_pressed("jump") and cayote_timer > 0 and is_on_floor():
+		if upgrades["double_jump"]:
+			powers["double_jump"] = true
+		velocity.y = jump_strength
+		
+	if Input.is_action_just_pressed("jump") and !is_on_floor() and powers["double_jump"]:
+		powers["double_jump"] = false
 		velocity.y = jump_strength
 	
 	# Cut off jump velocity when releasing the jump button
