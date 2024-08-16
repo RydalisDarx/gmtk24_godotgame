@@ -7,21 +7,25 @@ extends CharacterBody2D
 @export var dash_speed := 2500.0
 
 @export_range(2.0, 5.0) var overtime_gravity_increment := 30.0
-@export_range(0.1, 0.0) var cayote_time := 0.07 
+@export_range(0.1, 0.0) var cayote_time := 0.07
+@export_range(0.0, 3.0) var dash_cooldown_time := 1.0
 @export_range(0.0, 1.0) var friction = 0.8
 @export_range(0.0 , 1.0) var acceleration = 0.25
 
 var overtime_gravity := 0.0
 var cayote_timer := 0.0
+var dash_timer := 0.0
 
 # dictionary of booleans setting whether an upgrade has been unlocked or not
 var upgrades = {
-	"double_jump" = true
+	"double_jump" = true,
+	"dash" = false
 }
 
 # dictionary of booleans setting whether a power is able to be used moment to moment
 var powers = {
-	"double_jump" = false
+	"double_jump" = false,
+	"dash" = false
 }
 
 func _physics_process(delta):
@@ -67,10 +71,20 @@ func _physics_process(delta):
 	if Input.is_action_just_released("jump") and velocity.y < 0:
 		velocity.y = 0
 		
-	if Input.is_action_just_pressed("dash"):
+	if dash_timer > 0:
+		dash_timer -= delta
+	else:
+		if upgrades["dash"]:
+			powers["dash"] = true
+		dash_timer = 0
+	
+	# use dash
+	if Input.is_action_just_pressed("dash") and powers["dash"]:
 		if velocity.x > 0:
 			velocity.x += dash_speed
 		elif velocity.x < 0:
 			velocity.x -= dash_speed
+		powers["dash"] = false
+		dash_timer = dash_cooldown_time
 
 	move_and_slide()
