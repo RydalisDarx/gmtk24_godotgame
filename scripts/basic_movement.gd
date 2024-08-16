@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var jump_strength := -500.0
 @export var gravity := 950.0
 @export var terminal_velocity := 700
+@export var dash_speed := 2500.0
 
 @export_range(2.0, 5.0) var overtime_gravity_increment := 30.0
 @export_range(0.1, 0.0) var cayote_time := 0.07 
@@ -49,5 +50,11 @@ func _physics_process(delta):
 	# Cut off jump velocity when releasing the jump button
 	if Input.is_action_just_released("jump") and velocity.y < 0:
 		velocity.y = 0
+		
+	if Input.is_action_just_pressed("dash"):
+		if velocity.x > 0:
+			velocity.x += dash_speed
+		elif velocity.x < 0:
+			velocity.x -= dash_speed
 
 	move_and_slide()
