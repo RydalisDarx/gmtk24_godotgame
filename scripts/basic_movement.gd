@@ -8,8 +8,8 @@ extends CharacterBody2D
 
 # dictionary of booleans setting whether an upgrade has been unlocked or not
 @export var upgrades = {
-	"double_jump" = true,
-	"dash" = true
+	"double_jump" = false,
+	"dash" = false
 }
 
 @export_range(2.0, 5.0) var overtime_gravity_increment := 30.0
@@ -88,3 +88,8 @@ func _physics_process(delta):
 		dash_timer = dash_cooldown_time
 
 	move_and_slide()
+
+func _on_item_acquistion_hitbox_upgrade_collected(upgrade_name):
+	print("PLAYER: Got upgrade " + str(upgrade_name))
+	if upgrades.has(upgrade_name):
+		upgrades[upgrade_name] = true
