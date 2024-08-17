@@ -18,7 +18,7 @@ func _ready():
 	sprite.frame = upgrade_sheet[upgrade_name]
 
 func _on_area_2d_body_entered(_body):
-	if active:
+	if active and _body.is_in_group("Player"):
 		active = false
 		upgrade_collected.emit(upgrade_name, permanent, duration)
 		sprite.visible = active
