@@ -900,7 +900,7 @@ states/stop_run/position = Vector2(443, 211.5)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_na4js"), "idle", "start_run", SubResource("AnimationNodeStateMachineTransition_ft01o"), "start_run", "run", SubResource("AnimationNodeStateMachineTransition_qgicp"), "run", "stop_run", SubResource("AnimationNodeStateMachineTransition_nr0f1"), "stop_run", "idle", SubResource("AnimationNodeStateMachineTransition_n0wkf"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_qq5pc"), "fall", "land", SubResource("AnimationNodeStateMachineTransition_ed7h3"), "land", "idle", SubResource("AnimationNodeStateMachineTransition_4c2ox"), "land_run", "run", SubResource("AnimationNodeStateMachineTransition_j1eq3"), "fall", "land_run", SubResource("AnimationNodeStateMachineTransition_1lvot")]
 graph_offset = Vector2(82, -226)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_krgb4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
