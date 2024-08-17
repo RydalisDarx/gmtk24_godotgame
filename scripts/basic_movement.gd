@@ -54,8 +54,9 @@ func _physics_process(delta):
 
 		if is_on_floor():
 			animate("idle")
-		else:
-			animate("fall")
+
+	if not is_on_floor():
+		animate("fall")
 
 	# Cayote Time
 	if is_on_floor():
@@ -104,6 +105,7 @@ func _on_item_acquistion_hitbox_upgrade_collected(upgrade_name):
 
 
 func update_animation_blend(animation_blend: float):
+	# this should be called every frame. uses a float to set which animations to play. -1 = left, 1 = right, 0 = right
 	animation_tree["parameters/start_run/blend_position"] = animation_blend
 	animation_tree["parameters/run/blend_position"] = animation_blend
 	animation_tree["parameters/stop_run/blend_position"] = animation_blend
