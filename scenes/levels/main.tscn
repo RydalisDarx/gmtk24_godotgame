@@ -3,9 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://beiqcohu2gu4g" path="res://scenes/player.tscn" id="1_ow22n"]
 [ext_resource type="Texture2D" uid="uid://dgrt7meidcjjm" path="res://assets/world_tileset.png" id="2_4uh76"]
 [ext_resource type="Texture2D" uid="uid://dxjei8kqjcq6l" path="res://assets/platforms.png" id="3_hu5p1"]
-[ext_resource type="PackedScene" uid="uid://bpknw4f76hnix" path="res://scenes/PauseMenu.tscn" id="4_sejj6"]
-[ext_resource type="PackedScene" uid="uid://e8cg0d371vkq" path="res://scenes/item_acquistion_hitbox.tscn" id="5_6us5t"]
-[ext_resource type="PackedScene" uid="uid://b5dhwryicmp6o" path="res://scenes/level_portal.tscn" id="6_er7b2"]
+[ext_resource type="PackedScene" uid="uid://bpknw4f76hnix" path="res://scenes/screens/PauseMenu.tscn" id="4_sejj6"]
+[ext_resource type="PackedScene" uid="uid://e8cg0d371vkq" path="res://scenes/world_objects/item_acquistion_hitbox.tscn" id="5_6us5t"]
+[ext_resource type="PackedScene" uid="uid://b5dhwryicmp6o" path="res://scenes/world_objects/level_portal.tscn" id="6_er7b2"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1quo5"]
 bounce = 0.12
