@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://e8cg0d371vkq"]
+
+[ext_resource type="Script" path="res://scripts/item_acquistion_hitbox.gd" id="1_t2v86"]
+[ext_resource type="Texture2D" uid="uid://ejuf1hpgpo74" path="res://assets/placeholder_upgrade_sheet.png" id="2_f2fep"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_alm13"]
+size = Vector2(32, 32)
+
+[node name="Item Acquistion Hitbox" type="Node2D"]
+script = ExtResource("1_t2v86")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_f2fep")
+hframes = 3
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_alm13")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
