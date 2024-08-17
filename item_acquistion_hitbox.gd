@@ -12,8 +12,6 @@ var active := true
 
 signal upgrade_collected(upgrade_name)
 
-# TODO: Dynamicly update the sprite based on the 'upgrade_name' property
-
 func _ready():
 	sprite.frame = upgrade_sheet[upgrade_name]
 	print(upgrade_name)
