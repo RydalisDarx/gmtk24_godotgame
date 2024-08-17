@@ -6,6 +6,9 @@ extends CharacterBody2D
 @export var terminal_velocity := 700
 @export var dash_speed := 2500.0
 
+@onready var animation_tree := $"%AnimationTree"
+var current_animation := ""
+
 # dictionary of booleans setting whether an upgrade has been unlocked or not
 @export var upgrades = {
 	"double_jump" = false,
@@ -34,17 +37,25 @@ func _physics_process(delta):
 		overtime_gravity += overtime_gravity_increment
 	else:
 		overtime_gravity = 0
-		
+
 	# Apply gravity
 	velocity.y += (gravity + overtime_gravity) * delta
 	clampf(velocity.y, -terminal_velocity, terminal_velocity)
 
 	# Input affects x axis only
 	var dir = Input.get_axis("walk_left", "walk_right")
+
 	if dir != 0:
+		update_animation_blend(dir)
 		velocity.x = lerp(velocity.x, dir * speed, acceleration)
+		animate("run")
 	else:
 		velocity.x = lerp(velocity.x, 0.0, friction)
+
+		if is_on_floor():
+			animate("idle")
+		else:
+			animate("fall")
 
 	# Cayote Time
 	if is_on_floor():
@@ -57,10 +68,12 @@ func _physics_process(delta):
 		if upgrades["double_jump"]:
 			powers["double_jump"] = true
 		velocity.y = jump_strength
+		animate("jump")
 		
 	if Input.is_action_just_pressed("jump") and cayote_timer < 0 and powers["double_jump"]:
 		powers["double_jump"] = false
 		velocity.y = jump_strength
+		animate("jump")
 	
 	# Cut off jump velocity when releasing the jump button
 	if Input.is_action_just_released("jump") and velocity.y < 0:
@@ -88,3 +101,19 @@ func _on_item_acquistion_hitbox_upgrade_collected(upgrade_name):
 	print("PLAYER: Got upgrade " + str(upgrade_name))
 	if upgrades.has(upgrade_name):
 		upgrades[upgrade_name] = true
+
+
+func update_animation_blend(animation_blend: float):
+	animation_tree["parameters/start_run/blend_position"] = animation_blend
+	animation_tree["parameters/run/blend_position"] = animation_blend
+	animation_tree["parameters/stop_run/blend_position"] = animation_blend
+	animation_tree["parameters/jump/blend_position"] = animation_blend
+	animation_tree["parameters/fall/blend_position"] = animation_blend
+	animation_tree["parameters/land/blend_position"] = animation_blend
+	animation_tree["parameters/land_run/blend_position"] = animation_blend
+
+func animate(animation_name: String):
+	if current_animation == animation_name:
+		return
+
+	animation_tree["parameters/playback"].travel(animation_name)
