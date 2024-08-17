@@ -2,6 +2,8 @@ class_name UpgradeHitbox
 extends Node2D
 
 @export_enum("dash", "double_jump") var upgrade_name := ""
+@export var permanent := false
+@export var duration := 10.0
 @onready var sprite := $Sprite
 var active := true
 
@@ -10,7 +12,7 @@ var active := true
 	"double_jump" = 2
 }
 
-signal upgrade_collected(upgrade_name)
+signal upgrade_collected(upgrade_name, permanent, duration)
 
 func _ready():
 	sprite.frame = upgrade_sheet[upgrade_name]
@@ -18,5 +20,5 @@ func _ready():
 func _on_area_2d_body_entered(_body):
 	if active:
 		active = false
-		upgrade_collected.emit(upgrade_name)
+		upgrade_collected.emit(upgrade_name, permanent, duration)
 		sprite.visible = active
