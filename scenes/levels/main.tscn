@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=4 uid="uid://bi8dovscytpwf"]
+[gd_scene load_steps=15 format=4 uid="uid://bi8dovscytpwf"]
 
-[ext_resource type="PackedScene" uid="uid://beiqcohu2gu4g" path="res://scenes/player.tscn" id="1_my63d"]
-[ext_resource type="Texture2D" uid="uid://dgrt7meidcjjm" path="res://assets/world_tileset.png" id="2_qsmyc"]
-[ext_resource type="Texture2D" uid="uid://dxjei8kqjcq6l" path="res://assets/platforms.png" id="3_snw0g"]
-[ext_resource type="PackedScene" uid="uid://bpknw4f76hnix" path="res://scenes/PauseMenu.tscn" id="4_ij276"]
+[ext_resource type="PackedScene" uid="uid://beiqcohu2gu4g" path="res://scenes/player.tscn" id="1_ow22n"]
+[ext_resource type="Texture2D" uid="uid://dgrt7meidcjjm" path="res://assets/world_tileset.png" id="2_4uh76"]
+[ext_resource type="Texture2D" uid="uid://dxjei8kqjcq6l" path="res://assets/platforms.png" id="3_hu5p1"]
+[ext_resource type="PackedScene" uid="uid://bpknw4f76hnix" path="res://scenes/PauseMenu.tscn" id="4_sejj6"]
+[ext_resource type="PackedScene" uid="uid://e8cg0d371vkq" path="res://scenes/item_acquistion_hitbox.tscn" id="5_6us5t"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1quo5"]
 bounce = 0.12
@@ -13,7 +14,7 @@ bounce = 0.12
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mt7tb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1adbf"]
-texture = ExtResource("2_qsmyc")
+texture = ExtResource("2_4uh76")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -191,7 +192,7 @@ _data = {
 
 [node name="World" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_my63d")]
+[node name="Player" parent="." instance=ExtResource("1_ow22n")]
 position = Vector2(474, 559)
 
 [node name="World Borders" type="Node2D" parent="."]
@@ -225,7 +226,7 @@ scale = Vector2(2, 2)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Moving Platform"]
-texture = ExtResource("3_snw0g")
+texture = ExtResource("3_hu5p1")
 hframes = 4
 vframes = 4
 
@@ -241,4 +242,10 @@ autoplay = "moving"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("4_ij276")]
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("4_sejj6")]
+
+[node name="Item Acquistion Hitbox" parent="." instance=ExtResource("5_6us5t")]
+position = Vector2(770, 464)
+upgrade_name = "double_jump"
+
+[connection signal="upgrade_collected" from="Item Acquistion Hitbox" to="Player" method="_on_item_acquistion_hitbox_upgrade_collected"]
