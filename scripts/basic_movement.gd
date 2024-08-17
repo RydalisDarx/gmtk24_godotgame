@@ -6,6 +6,12 @@ extends CharacterBody2D
 @export var terminal_velocity := 700
 @export var dash_speed := 2500.0
 
+# dictionary of booleans setting whether an upgrade has been unlocked or not
+@export var upgrades = {
+	"double_jump" = true,
+	"dash" = true
+}
+
 @export_range(2.0, 5.0) var overtime_gravity_increment := 30.0
 @export_range(0.1, 0.0) var cayote_time := 0.07
 @export_range(0.0, 3.0) var dash_cooldown_time := 1.0
@@ -15,12 +21,6 @@ extends CharacterBody2D
 var overtime_gravity := 0.0
 var cayote_timer := 0.0
 var dash_timer := 0.0
-
-# dictionary of booleans setting whether an upgrade has been unlocked or not
-var upgrades = {
-	"double_jump" = true,
-	"dash" = false
-}
 
 # dictionary of booleans setting whether a power is able to be used moment to moment
 var powers = {
