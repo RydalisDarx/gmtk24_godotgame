@@ -84,7 +84,10 @@ func _physics_process(delta):
 
 	move_and_slide()
 
-func _on_item_acquistion_hitbox_upgrade_collected(upgrade_name):
+func _on_item_acquistion_hitbox_upgrade_collected(upgrade_name, permanent, duration):
 	print("PLAYER: Got upgrade " + str(upgrade_name))
 	if upgrades.has(upgrade_name):
 		upgrades[upgrade_name] = true
+		if not permanent:
+			await get_tree().create_timer(duration).timeout
+			upgrades[upgrade_name] = false

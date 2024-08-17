@@ -248,6 +248,8 @@ autoplay = "moving"
 [node name="Item Acquistion Hitbox" parent="." instance=ExtResource("5_78me7")]
 position = Vector2(744, 464)
 upgrade_name = "double_jump"
+permanent = true
+duration = 3.0
 
 [node name="Item Acquistion Hitbox2" parent="." instance=ExtResource("5_78me7")]
 position = Vector2(1024, 576)
