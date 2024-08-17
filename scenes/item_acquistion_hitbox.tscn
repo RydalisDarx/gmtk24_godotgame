@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_alm13"]
 size = Vector2(32, 32)
 
-[node name="Item Acquistion Hitbox" type="Node2D"]
+[node name="Item Acquistion Hitbox" type="Node2D" groups=["Item Pickups"]]
 script = ExtResource("1_t2v86")
 
 [node name="Sprite" type="Sprite2D" parent="."]
