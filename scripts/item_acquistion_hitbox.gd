@@ -14,7 +14,6 @@ signal upgrade_collected(upgrade_name)
 
 func _ready():
 	sprite.frame = upgrade_sheet[upgrade_name]
-	print(upgrade_name)
 
 func _on_area_2d_body_entered(_body):
 	if active:

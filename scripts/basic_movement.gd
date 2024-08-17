@@ -29,11 +29,6 @@ var powers = {
 }
 
 func _physics_process(delta):
-	# DEBUG
-	#print(cayote_timer)
-	#if velocity.y != 0:
-		#print("PLAYER: velocity.y = " + str(velocity.y))
-
 	# Increase gravity intensity every frame off the ground
 	if not is_on_floor():
 		overtime_gravity += overtime_gravity_increment
@@ -58,12 +53,12 @@ func _physics_process(delta):
 		cayote_timer -= delta
 
 	# Only allow jumping when on the ground
-	if Input.is_action_just_pressed("jump") and cayote_timer > 0 and is_on_floor():
+	if Input.is_action_just_pressed("jump") and cayote_timer > 0:
 		if upgrades["double_jump"]:
 			powers["double_jump"] = true
 		velocity.y = jump_strength
 		
-	if Input.is_action_just_pressed("jump") and !is_on_floor() and powers["double_jump"]:
+	if Input.is_action_just_pressed("jump") and cayote_timer < 0 and powers["double_jump"]:
 		powers["double_jump"] = false
 		velocity.y = jump_strength
 	

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://e8cg0d371vkq"]
 
-[ext_resource type="Script" path="res://item_acquistion_hitbox.gd" id="1_t2v86"]
+[ext_resource type="Script" path="res://scripts/item_acquistion_hitbox.gd" id="1_t2v86"]
 [ext_resource type="Texture2D" uid="uid://ejuf1hpgpo74" path="res://assets/placeholder_upgrade_sheet.png" id="2_f2fep"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_alm13"]
