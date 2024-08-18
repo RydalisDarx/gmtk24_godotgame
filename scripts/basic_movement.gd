@@ -1,15 +1,18 @@
 extends CharacterBody2D
 
-@export var speed := 500.0
+@export var speed := 200.0
 @export var jump_strength := -500.0
 @export var gravity := 950.0
 @export var terminal_velocity := 700
 @export var dash_speed := 2500.0
+@export var wall_slide_velocity := 150
 
 # dictionary of booleans setting whether an upgrade has been unlocked or not
 @export var upgrades = {
 	"double_jump" = true,
-	"dash" = true
+	"dash" = true,
+	"wall_slide" = true,
+	"wall_jump" = true
 }
 
 @export_range(2.0, 5.0) var overtime_gravity_increment := 30.0
@@ -42,7 +45,10 @@ func _physics_process(delta):
 		
 	# Apply gravity
 	velocity.y += (gravity + overtime_gravity) * delta
-	clampf(velocity.y, -terminal_velocity, terminal_velocity)
+	if is_on_wall_only() and velocity.y > 0 and upgrades["wall_slide"]:
+		velocity.y = clampf(velocity.y, -wall_slide_velocity, wall_slide_velocity)
+	else:
+		velocity.y = clampf(velocity.y, -terminal_velocity, terminal_velocity)
 
 	# Input affects x axis only
 	var dir = Input.get_axis("walk_left", "walk_right")
@@ -57,11 +63,16 @@ func _physics_process(delta):
 	else:
 		cayote_timer -= delta
 
-	# Only allow jumping when on the ground
-	if Input.is_action_just_pressed("jump") and cayote_timer > 0 and is_on_floor():
-		if upgrades["double_jump"]:
-			powers["double_jump"] = true
-		velocity.y = jump_strength
+	# Only allow jumping when on the ground or when wall jumping
+	if Input.is_action_just_pressed("jump"):
+		if cayote_timer > 0 and is_on_floor():
+			if upgrades["double_jump"]:
+				powers["double_jump"] = true
+			velocity.y = jump_strength
+		elif is_on_wall_only() and upgrades["wall_jump"]:
+			overtime_gravity = 0
+			velocity.y = jump_strength
+			velocity.x = 1.5 * jump_strength * dir
 		
 	if Input.is_action_just_pressed("jump") and !is_on_floor() and powers["double_jump"]:
 		powers["double_jump"] = false
