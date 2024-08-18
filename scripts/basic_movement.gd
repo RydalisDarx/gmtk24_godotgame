@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 @export var speed := 200.0
 @export var jump_strength := -300.0
-@export var gravity := 250.0
-@export var terminal_velocity := 200
+@export var gravity := 675.0
+@export var terminal_velocity := 500
 @export var dash_speed := 1000.0
 
 @onready var animation_tree := $"%AnimationTree"
@@ -105,8 +105,9 @@ func _physics_process(delta):
 func _on_item_acquistion_hitbox_upgrade_collected(upgrade_name, permanent, duration):
 	print("PLAYER: Got upgrade " + str(upgrade_name))
 	if upgrades.has(upgrade_name):
+		var had_upgrade = upgrades[upgrade_name]
 		upgrades[upgrade_name] = true
-		if not permanent:
+		if not permanent and had_upgrade == false:
 			print("will last " + str(duration) + " seconds")
 			await get_tree().create_timer(duration).timeout
 			upgrades[upgrade_name] = false
