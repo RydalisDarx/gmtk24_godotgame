@@ -41,7 +41,7 @@ func _on_resume_button_pressed() -> void:
 
 func _on_menu_button_pressed() -> void:
 	resume()
-	get_tree().change_scene_to_file("res://scenes/TitleScreen.tscn")
+	get_tree().change_scene_to_file("res://scenes/screens/TitleScreen.tscn")
 	pass # Replace with function body.
 
 
