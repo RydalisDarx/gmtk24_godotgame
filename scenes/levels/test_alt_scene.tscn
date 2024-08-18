@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://cdkcl7te31mff"]
+[gd_scene load_steps=8 format=4 uid="uid://cdkcl7te31mff"]
 
 [ext_resource type="PackedScene" uid="uid://beiqcohu2gu4g" path="res://scenes/player.tscn" id="1_2f0ok"]
 [ext_resource type="TileSet" uid="uid://bn728p1sy8er7" path="res://assets/forest_tilset.tres" id="2_xqa6n"]
 [ext_resource type="PackedScene" uid="uid://b5dhwryicmp6o" path="res://scenes/world_objects/level_portal.tscn" id="3_ucxot"]
 [ext_resource type="PackedScene" uid="uid://bpknw4f76hnix" path="res://scenes/screens/PauseMenu.tscn" id="4_w25rr"]
+[ext_resource type="PackedScene" uid="uid://e8cg0d371vkq" path="res://scenes/world_objects/item_acquistion_hitbox.tscn" id="5_put4a"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1quo5"]
 bounce = 0.12
@@ -50,3 +51,9 @@ scenename = "main"
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("4_w25rr")]
 offset_left = -1.0
 offset_right = -1.0
+
+[node name="Item Acquistion Hitbox" parent="." instance=ExtResource("5_put4a")]
+position = Vector2(1138, 511)
+upgrade_name = "double_jump"
+duration = 3.0
+reappear_time = 5
