@@ -31,6 +31,19 @@ var powers = {
 	"dash" = false
 }
 
+func _ready() -> void:
+	var hazards := get_tree().get_nodes_in_group("Hazards")
+	var item_pickups := get_tree().get_nodes_in_group("Item Pickups")
+
+	for h in hazards:
+		if h.has_signal("hazard_collision"):
+			h.hazard_collision.connect(_on_hazard_collision)
+
+	for u in item_pickups:
+		if u.has_signal("upgrade_collected"):
+			u.upgrade_collected.connect(_on_upgrade_collected)
+
+
 func _physics_process(delta):
 	# Increase gravity intensity every frame off the ground
 	if not is_on_floor():
@@ -98,11 +111,16 @@ func _physics_process(delta):
 
 	move_and_slide()
 
+<<<<<<< HEAD
 func _on_item_acquistion_hitbox_upgrade_collected(upgrade_name, permanent, duration):
+=======
+func _on_upgrade_collected(upgrade_name):
+>>>>>>> 20-program-death-and-hazard-functionalities
 	print("PLAYER: Got upgrade " + str(upgrade_name))
 	if upgrades.has(upgrade_name):
 		var had_upgrade = upgrades[upgrade_name]
 		upgrades[upgrade_name] = true
+<<<<<<< HEAD
 		if not permanent and had_upgrade == false:
 			print("will last " + str(duration) + " seconds")
 			await get_tree().create_timer(duration).timeout
@@ -125,3 +143,12 @@ func animate(animation_name: String):
 		return
 
 	animation_tree["parameters/playback"].travel(animation_name)
+=======
+
+func _on_hazard_collision():
+	print("death")
+	call_deferred("reload")
+
+func reload():
+	get_tree().reload_current_scene()
+>>>>>>> 20-program-death-and-hazard-functionalities

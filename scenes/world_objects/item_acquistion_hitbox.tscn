@@ -6,8 +6,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_alm13"]
 size = Vector2(32, 32)
 
+<<<<<<< HEAD:scenes/world_objects/item_acquistion_hitbox.tscn
 [node name="Item Acquistion Hitbox" type="Node2D"]
 scale = Vector2(0.486884, 0.486884)
+=======
+[node name="Item Acquistion Hitbox" type="Node2D" groups=["Item Pickups"]]
+>>>>>>> 20-program-death-and-hazard-functionalities:scenes/item_acquistion_hitbox.tscn
 script = ExtResource("1_t2v86")
 
 [node name="Sprite" type="Sprite2D" parent="."]

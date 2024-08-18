@@ -27,6 +27,11 @@ window/size/mode=3
 window/size/resizable=false
 window/stretch/mode="viewport"
 
+[global_group]
+
+Hazards="Things that can kill the player"
+"Item Pickups"="Things that grant the player an upgrade"
+
 [input]
 
 jump={
