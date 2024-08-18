@@ -1,5 +1,4 @@
 extends CharacterBody2D
-class_name Player
 
 @export var speed := 200.0
 @export var jump_strength := -300.0
@@ -10,10 +9,8 @@ class_name Player
 @onready var animation_tree := $"%AnimationTree"
 var current_animation := ""
 
-var m_Properties : PlayerProperties = null
-
-# dictionary of booleans setting whether an upgrade is active
-@export var active_upgrades = {
+# dictionary of booleans setting whether an upgrade has been unlocked or not
+@export var upgrades = {
 	"double_jump" = false,
 	"dash" = false
 }
@@ -28,23 +25,11 @@ var overtime_gravity := 0.0
 var cayote_timer := 0.0
 var dash_timer := 0.0
 
-# dictionary of booleans setting whether a power is ready to be used moment to moment
-var ready_powers = {
+# dictionary of booleans setting whether a power is able to be used moment to moment
+var powers = {
 	"double_jump" = false,
 	"dash" = false
 }
-
-# Returns the player proeprties object
-func GetProperties() -> PlayerProperties:
-	return m_Properties
-	 
-# Set the player properties
-func SetProperties(properties: PlayerProperties) -> void:
-	var perm_upgrades = properties.permanent_upgrades
-	m_Properties = PlayerProperties.new(perm_upgrades)
-	
-	for upgrade in perm_upgrades.keys():
-		active_upgrades[upgrade] = perm_upgrades[upgrade]
 
 func _physics_process(delta):
 	# Increase gravity intensity every frame off the ground
@@ -81,13 +66,13 @@ func _physics_process(delta):
 
 	# Only allow jumping when on the ground
 	if Input.is_action_just_pressed("jump") and cayote_timer > 0:
-		if active_upgrades["double_jump"]:
-			ready_powers["double_jump"] = true
+		if upgrades["double_jump"]:
+			powers["double_jump"] = true
 		velocity.y = jump_strength
 		animate("jump")
 		
-	if Input.is_action_just_pressed("jump") and cayote_timer < 0 and ready_powers["double_jump"]:
-		ready_powers["double_jump"] = false
+	if Input.is_action_just_pressed("jump") and cayote_timer < 0 and powers["double_jump"]:
+		powers["double_jump"] = false
 		velocity.y = jump_strength
 		animate("jump")
 	
@@ -98,32 +83,30 @@ func _physics_process(delta):
 	if dash_timer > 0:
 		dash_timer -= delta
 	else:
-		if active_upgrades["dash"]:
-			ready_powers["dash"] = true
+		if upgrades["dash"]:
+			powers["dash"] = true
 		dash_timer = 0
 	
 	# use dash
-	if Input.is_action_just_pressed("dash") and ready_powers["dash"]:
+	if Input.is_action_just_pressed("dash") and powers["dash"]:
 		if velocity.x > 0:
 			velocity.x += dash_speed
 		elif velocity.x < 0:
 			velocity.x -= dash_speed
-		ready_powers["dash"] = false
+		powers["dash"] = false
 		dash_timer = dash_cooldown_time
 
 	move_and_slide()
 
 func _on_item_acquistion_hitbox_upgrade_collected(upgrade_name, permanent, duration):
 	print("PLAYER: Got upgrade " + str(upgrade_name))
-	if active_upgrades.has(upgrade_name):
-		var had_upgrade = active_upgrades[upgrade_name]
-		active_upgrades[upgrade_name] = true
-		if permanent:
-			m_Properties.set_upgrade(upgrade_name, true)
+	if upgrades.has(upgrade_name):
+		var had_upgrade = upgrades[upgrade_name]
+		upgrades[upgrade_name] = true
 		if not permanent and had_upgrade == false:
 			print("will last " + str(duration) + " seconds")
 			await get_tree().create_timer(duration).timeout
-			active_upgrades[upgrade_name] = false
+			upgrades[upgrade_name] = false
 			print("PLAYER: upgrade " + str(upgrade_name) + " wore off")
 
 
