@@ -102,7 +102,7 @@ func _on_item_acquistion_hitbox_upgrade_collected(upgrade_name, permanent, durat
 	print("PLAYER: Got upgrade " + str(upgrade_name))
 	if upgrades.has(upgrade_name):
 		upgrades[upgrade_name] = true
-		if not permanent:
+		if not permanent and upgrades[upgrade_name] == false:
 			print("will last " + str(duration) + " seconds")
 			await get_tree().create_timer(duration).timeout
 			upgrades[upgrade_name] = false
