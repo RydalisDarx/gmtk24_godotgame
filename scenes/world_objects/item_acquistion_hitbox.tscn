@@ -7,6 +7,7 @@
 size = Vector2(32, 32)
 
 [node name="Item Acquistion Hitbox" type="Node2D"]
+scale = Vector2(0.486884, 0.486884)
 script = ExtResource("1_t2v86")
 
 [node name="Sprite" type="Sprite2D" parent="."]
