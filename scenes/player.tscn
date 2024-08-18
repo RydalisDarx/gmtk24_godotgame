@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dp3elhbje8jhq" path="res://assets/player-Sheet.png" id="2_fkr47"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fgbcy"]
-size = Vector2(12, 30)
+size = Vector2(13, 30)
 
 [sub_resource type="Animation" id="Animation_e3g1g"]
 length = 0.001
@@ -928,7 +928,7 @@ graph_offset = Vector2(82, -226)
 script = ExtResource("1_krgb4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -15)
+position = Vector2(0.5, -15)
 shape = SubResource("RectangleShape2D_fgbcy")
 
 [node name="player_sprite" type="Sprite2D" parent="."]
