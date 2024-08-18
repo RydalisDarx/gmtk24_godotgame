@@ -2,9 +2,9 @@ extends CharacterBody2D
 
 @export var speed := 200.0
 @export var jump_strength := -380.0
-@export var gravity := 850.0
-@export var terminal_velocity := 500
-@export var dash_speed := 2500.0
+@export var gravity := 250.0
+@export var terminal_velocity := 200
+@export var dash_speed := 1000.0
 
 @onready var animation_tree := $"%AnimationTree"
 var current_animation := ""
