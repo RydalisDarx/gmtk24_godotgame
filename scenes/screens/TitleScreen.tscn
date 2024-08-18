@@ -1,9 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bqyo7345b5kj2"]
 
 [ext_resource type="Script" path="res://scripts/title_screen_controller.gd" id="1_e2i8m"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_cbj6j"]
-font_size = 73
+[ext_resource type="FontFile" uid="uid://b5eibttpb7bp4" path="res://assets/font/at01.ttf" id="2_egljd"]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -21,15 +19,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -102.5
-offset_top = 47.0
-offset_right = 102.5
-offset_bottom = 129.0
+offset_left = -58.0
+offset_top = -8.0
+offset_right = 147.0
+offset_bottom = 74.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.494694, 0.494694)
+theme_override_fonts/font = ExtResource("2_egljd")
+theme_override_font_sizes/font_size = 48
 text = "Start Game"
 
-[node name="QuitButton" type="Button" parent="."]
+[node name="QuitButton" type="Button" parent="StartButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -37,11 +38,13 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -102.5
-offset_top = 143.0
+offset_top = 41.8795
 offset_right = 102.5
-offset_bottom = 225.0
+offset_bottom = 123.88
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_egljd")
+theme_override_font_sizes/font_size = 48
 text = "Quit Game"
 
 [node name="Label" type="Label" parent="."]
@@ -51,16 +54,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -284.0
-offset_top = -276.0
-offset_right = 284.0
-offset_bottom = -8.0
+offset_left = -156.0
+offset_top = -103.0
+offset_right = 156.0
+offset_bottom = -52.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Game Title"
-label_settings = SubResource("LabelSettings_cbj6j")
-horizontal_alignment = 1
-vertical_alignment = 1
+theme_override_fonts/font = ExtResource("2_egljd")
+theme_override_font_sizes/font_size = 64
+text = "Project: Playroom"
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="StartButton/QuitButton" to="." method="_on_quit_button_pressed"]

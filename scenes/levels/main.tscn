@@ -197,6 +197,7 @@ script = ExtResource("1_dv2ak")
 
 [node name="Player" parent="." instance=ExtResource("1_ow22n")]
 position = Vector2(474, 559)
+script = null
 
 [node name="World Borders" type="Node2D" parent="."]
 

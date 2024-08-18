@@ -9,7 +9,6 @@ class_name Player
 
 @onready var animation_tree := $"%AnimationTree"
 var current_animation := ""
-var previous_animation := ""
 
 var m_Properties : PlayerProperties = null
 
@@ -73,9 +72,6 @@ func _physics_process(delta):
 
 	if not is_on_floor():
 		animate("fall")
-
-	if dir != 0 and is_on_floor() and previous_animation == 'fall':
-		animate("land_run")
 
 	# Cayote Time
 	if is_on_floor():
@@ -144,8 +140,5 @@ func update_animation_blend(animation_blend: float):
 func animate(animation_name: String):
 	if current_animation == animation_name:
 		return
-
-	previous_animation = current_animation
-	current_animation = animation_name
 
 	animation_tree["parameters/playback"].travel(animation_name)
