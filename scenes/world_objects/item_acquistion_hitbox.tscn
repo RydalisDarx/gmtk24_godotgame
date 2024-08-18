@@ -1,18 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://e8cg0d371vkq"]
 
-[ext_resource type="Script" path="res://scripts/item_acquistion_hitbox.gd" id="1_t2v86"]
+[ext_resource type="Script" path="res://scripts/item_acquistion_hitbox.gd" id="1_bpftt"]
 [ext_resource type="Texture2D" uid="uid://ejuf1hpgpo74" path="res://assets/placeholder_upgrade_sheet.png" id="2_f2fep"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_alm13"]
 size = Vector2(32, 32)
 
-<<<<<<< HEAD:scenes/world_objects/item_acquistion_hitbox.tscn
 [node name="Item Acquistion Hitbox" type="Node2D"]
 scale = Vector2(0.486884, 0.486884)
-=======
-[node name="Item Acquistion Hitbox" type="Node2D" groups=["Item Pickups"]]
->>>>>>> 20-program-death-and-hazard-functionalities:scenes/item_acquistion_hitbox.tscn
-script = ExtResource("1_t2v86")
+script = ExtResource("1_bpftt")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_f2fep")
