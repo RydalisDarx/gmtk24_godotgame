@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bpknw4f76hnix"]
+[gd_scene load_steps=8 format=3 uid="uid://bpknw4f76hnix"]
 
 [ext_resource type="Script" path="res://scripts/pause_menu_controller.gd" id="1_lly85"]
 [ext_resource type="Shader" path="res://scripts/shaders/PauseMenuShader.gdshader" id="1_sko40"]
+[ext_resource type="FontFile" uid="uid://b5eibttpb7bp4" path="res://assets/font/at01.ttf" id="3_knbur"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vbmwl"]
 shader = ExtResource("1_sko40")
@@ -132,61 +133,91 @@ _data = {
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3
+top_level = true
+z_index = 4
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
 script = ExtResource("1_lly85")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_vbmwl")
-layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
-
-[node name="PanelContainer" type="PanelContainer" parent="."]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -312.0
-offset_top = -268.0
-offset_right = 312.0
-offset_bottom = 268.0
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_use_anchors_ = true
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = -126.0
+offset_right = 472.0
+offset_bottom = 410.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.468227, 0.468227)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+z_index = 5
 layout_mode = 2
 size_flags_vertical = 4
 alignment = 1
 
 [node name="ResumeButton" type="Button" parent="PanelContainer/VBoxContainer"]
+z_index = 5
 layout_mode = 2
 size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("3_knbur")
+theme_override_font_sizes/font_size = 32
 text = "Resume"
 
 [node name="RestartButton" type="Button" parent="PanelContainer/VBoxContainer"]
+z_index = 5
 layout_mode = 2
 size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("3_knbur")
+theme_override_font_sizes/font_size = 32
 text = "Restart"
 
 [node name="SettingsButton" type="Button" parent="PanelContainer/VBoxContainer"]
+z_index = 5
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_knbur")
+theme_override_font_sizes/font_size = 32
 text = "Settings"
 
 [node name="MenuButton" type="Button" parent="PanelContainer/VBoxContainer"]
+z_index = 5
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_knbur")
+theme_override_font_sizes/font_size = 32
 text = "Quit To Menu"
 
 [node name="QuitButton" type="Button" parent="PanelContainer/VBoxContainer"]
+z_index = 5
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_knbur")
+theme_override_font_sizes/font_size = 32
 text = "Quit Game"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

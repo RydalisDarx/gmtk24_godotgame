@@ -1,10 +1,12 @@
 extends Control
 
 func resume() -> void:
+	$PanelContainer/VBoxContainer.visible = false
 	get_tree().paused = false;
 	$AnimationPlayer.play_backwards("ScreenBlur")
 	
 func pause() -> void:
+	$PanelContainer/VBoxContainer.visible = true
 	get_tree().paused = true;
 	$AnimationPlayer.play("ScreenBlur")
 
@@ -16,6 +18,7 @@ func escaping() -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$PanelContainer/VBoxContainer.visible = false
 	$AnimationPlayer.play("RESET")
 
 
@@ -48,4 +51,8 @@ func _on_menu_button_pressed() -> void:
 func _on_quit_button_pressed() -> void:
 	resume()
 	get_tree().quit()
+	pass # Replace with function body.
+
+
+func _on_resume_button_draw() -> void:
 	pass # Replace with function body.
