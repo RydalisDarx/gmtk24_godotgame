@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameController="*res://scripts/game_controller.gd"
-GPlayerProperties="*res://scripts/player_properties.gd"
 
 [display]
 
