@@ -8,6 +8,7 @@ extends CharacterBody2D
 
 @onready var animation_tree := $"%AnimationTree"
 var current_animation := ""
+var previous_animation := ""
 
 # dictionary of booleans setting whether an upgrade has been unlocked or not
 @export var upgrades = {
@@ -57,6 +58,9 @@ func _physics_process(delta):
 
 	if not is_on_floor():
 		animate("fall")
+
+	if dir != 0 and is_on_floor() and previous_animation == 'fall':
+		animate("land_run")
 
 	# Cayote Time
 	if is_on_floor():
@@ -123,5 +127,8 @@ func update_animation_blend(animation_blend: float):
 func animate(animation_name: String):
 	if current_animation == animation_name:
 		return
+
+	previous_animation = current_animation
+	current_animation = animation_name
 
 	animation_tree["parameters/playback"].travel(animation_name)
