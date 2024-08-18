@@ -124,5 +124,4 @@ libraries = {
 autoplay = "moving"
 
 [node name="Player" parent="." instance=ExtResource("1_ow22n")]
-position = Vector2(43.0802, 188.891)
-script = null
+position = Vector2(19, 188)

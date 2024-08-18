@@ -14,8 +14,10 @@ var m_Properties : PlayerProperties = null
 
 # dictionary of booleans setting whether an upgrade is active
 @export var active_upgrades = {
+	"bonus_jump" = false,
 	"double_jump" = false,
-	"dash" = false
+	"dash" = false,
+	"wall_cling" = false
 }
 
 @export_range(2.0, 5.0) var overtime_gravity_increment := 30.0
@@ -30,8 +32,10 @@ var dash_timer := 0.0
 
 # dictionary of booleans setting whether a power is ready to be used moment to moment
 var ready_powers = {
+	"bonus_jump" = false,
 	"double_jump" = false,
-	"dash" = false
+	"dash" = false,
+	"wall_cling" = false
 }
 
 # Returns the player proeprties object
@@ -83,11 +87,16 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jump") and cayote_timer > 0:
 		if active_upgrades["double_jump"]:
 			ready_powers["double_jump"] = true
+		if active_upgrades["bonus_jump"]:
+			ready_powers["bonus_jump"] = true
 		velocity.y = jump_strength
 		animate("jump")
 		
-	if Input.is_action_just_pressed("jump") and cayote_timer < 0 and ready_powers["double_jump"]:
-		ready_powers["double_jump"] = false
+	if Input.is_action_just_pressed("jump") and cayote_timer < 0 and (ready_powers["double_jump"] or ready_powers["bonus_jump"]):
+		if ready_powers["double_jump"]:
+			ready_powers["double_jump"] = false
+		else:
+			ready_powers["bonus_jump"] = false
 		velocity.y = jump_strength
 		animate("jump")
 	

@@ -51,28 +51,28 @@ scale = Vector2(0.237056, 0.237056)
 [node name="DJ 1" parent="items" instance=ExtResource("5_put4a")]
 position = Vector2(1342.93, 130.614)
 scale = Vector2(1, 1)
-upgrade_name = "double_jump"
+upgrade_name = "bonus_jump"
 duration = 1.0
 reappear_time = 2
 
 [node name="DJ 2" parent="items" instance=ExtResource("5_put4a")]
 position = Vector2(0, -0.00012207)
 scale = Vector2(1, 1)
-upgrade_name = "double_jump"
+upgrade_name = "bonus_jump"
 duration = 1.0
 reappear_time = 2
 
 [node name="DJ 3" parent="items" instance=ExtResource("5_put4a")]
 position = Vector2(-1124.85, -573.861)
 scale = Vector2(1, 1)
-upgrade_name = "double_jump"
+upgrade_name = "bonus_jump"
 duration = 1.0
 reappear_time = 2
 
 [node name="DJ 4" parent="items" instance=ExtResource("5_put4a")]
 position = Vector2(705.945, -700.414)
 scale = Vector2(1, 1)
-upgrade_name = "double_jump"
+upgrade_name = "bonus_jump"
 duration = 1.0
 reappear_time = 2
 
