@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=4 uid="uid://bi8dovscytpwf"]
+[gd_scene load_steps=15 format=4 uid="uid://bi8dovscytpwf"]
 
 [ext_resource type="Texture2D" uid="uid://brkrc6rs36ouy" path="res://assets/stage_1_forest_v3.png" id="1_gcox3"]
 [ext_resource type="PackedScene" uid="uid://beiqcohu2gu4g" path="res://scenes/player.tscn" id="1_ow22n"]
+[ext_resource type="Script" path="res://scripts/scene_logic.gd" id="1_wpg34"]
 [ext_resource type="Texture2D" uid="uid://1spg1p870bkr" path="res://assets/mr_president.png" id="2_de7ib"]
 [ext_resource type="Texture2D" uid="uid://dxjei8kqjcq6l" path="res://assets/platforms.png" id="3_hu5p1"]
 [ext_resource type="Texture2D" uid="uid://d2xo0fim2hdch" path="res://assets/tree.png" id="3_wyji2"]
@@ -55,6 +56,7 @@ _data = {
 }
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_wpg34")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color(0.65345, 0.657679, 0.675899, 1)
