@@ -257,4 +257,8 @@ upgrade_name = "double_jump"
 position = Vector2(276, 599)
 scenename = "test_alt_scene"
 
+[node name="LevelPortal2" parent="." instance=ExtResource("6_er7b2")]
+position = Vector2(1028, 583)
+scenename = "tileset_test"
+
 [connection signal="upgrade_collected" from="Item Acquistion Hitbox" to="Player" method="_on_item_acquistion_hitbox_upgrade_collected"]
