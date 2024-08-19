@@ -21,7 +21,7 @@ func _ready():
 	var player_nodes = get_tree().get_nodes_in_group("Player")
 	
 	for player in player_nodes:
-		upgrade_collected.connect(player._on_item_acquistion_hitbox_upgrade_collected)
+		upgrade_collected.connect(player._on_upgrade_collected)
 
 func _on_area_2d_body_entered(_body):
 	print(upgrade_name + " collided with player")
