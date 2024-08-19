@@ -8,6 +8,8 @@ class_name Player
 @export var dash_speed := 1000.0
 
 @onready var animation_tree := $"%AnimationTree"
+@onready var double_jump_particles := $"%double_jump_particles"
+@onready var dash_particles := $"%dash_particles"
 var current_animation := ""
 
 var m_Properties : PlayerProperties = null
@@ -56,6 +58,9 @@ func SetProperties(properties: PlayerProperties) -> void:
 	for upgrade in perm_upgrades.keys():
 		active_upgrades[upgrade] = perm_upgrades[upgrade]
 
+		if active_upgrades[upgrade]:
+			GameController.upgrade_loaded.emit(upgrade)
+
 func _physics_process(delta):
 	# Increase gravity intensity every frame off the ground
 	if not is_on_floor():
@@ -70,7 +75,12 @@ func _physics_process(delta):
 	if dir != 0:
 		update_animation_blend(dir)
 		velocity.x = lerp(velocity.x, dir * speed, acceleration)
-		animate("run")
+
+		if current_animation == 'fall' and is_on_floor():
+			animate("land_run")
+
+		if current_animation != 'fall' and current_animation != 'land_run':
+			animate("run")
 	else:
 		velocity.x = lerp(velocity.x, 0.0, friction)
 
@@ -142,6 +152,7 @@ func _physics_process(delta):
 			overtime_gravity = 0
 			velocity.y = jump_strength
 			animate("jump")
+			double_jump_particles.emitting = true
 	
 	# Cut off jump velocity when releasing the jump button
 	if Input.is_action_just_released("jump") and velocity.y < 0:
@@ -151,8 +162,11 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("dash") and ready_powers["dash"]:
 		if velocity.x > 0:
 			velocity.x += dash_speed
+			dash_particles.emitting = true
 		elif velocity.x < 0:
 			velocity.x -= dash_speed
+			dash_particles.emitting = true
+		
 		ready_powers["dash"] = false
 		dash_timer = dash_cooldown_time
 
@@ -163,12 +177,14 @@ func _on_item_acquistion_hitbox_upgrade_collected(upgrade_name, permanent, durat
 	if active_upgrades.has(upgrade_name):
 		var had_upgrade = active_upgrades[upgrade_name]
 		active_upgrades[upgrade_name] = true
+		GameController.got_upgrade.emit(upgrade_name)
 		if permanent:
 			m_Properties.set_upgrade(upgrade_name, true)
 		if not permanent and had_upgrade == false:
 			print("will last " + str(duration) + " seconds")
 			await get_tree().create_timer(duration).timeout
 			active_upgrades[upgrade_name] = false
+			GameController.lost_upgrade.emit(upgrade_name)
 			print("PLAYER: upgrade " + str(upgrade_name) + " wore off")
 			
 func _on_hazard_collision():
@@ -177,7 +193,6 @@ func _on_hazard_collision():
 	
 func reload():
 	get_tree().reload_current_scene()
-
 
 func update_animation_blend(animation_blend: float):
 	# this should be called every frame. uses a float to set which animations to play. -1 = left, 1 = right, 0 = right
@@ -193,4 +208,5 @@ func animate(animation_name: String):
 	if current_animation == animation_name:
 		return
 
+	current_animation = animation_name
 	animation_tree["parameters/playback"].travel(animation_name)

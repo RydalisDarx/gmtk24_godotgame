@@ -191,7 +191,7 @@ _data = {
 "moving": SubResource("Animation_itc38")
 }
 
-[node name="World" type="Node2D"]
+[node name="World2" type="Node2D"]
 script = ExtResource("1_dv2ak")
 
 [node name="World Borders" type="Node2D" parent="."]
@@ -244,6 +244,14 @@ position = Vector2(770, 464)
 upgrade_name = "double_jump"
 permanent = true
 
+[node name="Item Acquistion Hitbox2" parent="." instance=ExtResource("5_6us5t")]
+position = Vector2(662, 446)
+upgrade_name = "dash"
+permanent = true
+
+[node name="Player" parent="." instance=ExtResource("1_ow22n")]
+position = Vector2(575, 564)
+
 [node name="LevelPortal" parent="." instance=ExtResource("6_er7b2")]
 position = Vector2(276, 599)
 scenename = "test_alt_scene"
@@ -251,6 +259,3 @@ scenename = "test_alt_scene"
 [node name="LevelPortal2" parent="." instance=ExtResource("6_er7b2")]
 position = Vector2(866, 602)
 scenename = "tileset_test"
-
-[node name="Player" parent="." instance=ExtResource("1_ow22n")]
-position = Vector2(575, 564)

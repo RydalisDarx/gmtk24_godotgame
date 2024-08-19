@@ -24,7 +24,6 @@ GPlayerProperties="*res://scripts/player_properties.gd"
 
 window/size/viewport_width=480
 window/size/viewport_height=270
-window/size/mode=3
 window/size/resizable=false
 window/stretch/mode="viewport"
 
