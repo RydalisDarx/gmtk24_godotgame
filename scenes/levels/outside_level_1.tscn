@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://p6e8xffftmnb"]
 
 [ext_resource type="Texture2D" uid="uid://brkrc6rs36ouy" path="res://assets/stage_1_forest_v3.png" id="1_dx3g7"]
-[ext_resource type="TileSet" uid="uid://bn728p1sy8er7" path="res://assets/forest_tilset.tres" id="4_erjac"]
+[ext_resource type="TileSet" uid="uid://dr1hxby50o3vs" path="res://assets/forest_tilset.tres" id="4_erjac"]
 [ext_resource type="PackedScene" uid="uid://beiqcohu2gu4g" path="res://scenes/player.tscn" id="6_6s7hy"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xgeyw"]
