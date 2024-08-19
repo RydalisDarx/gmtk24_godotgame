@@ -1,8 +1,9 @@
-[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://ba24m0uinmh66"]
+[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://ba24m0uinmh66"]
 
 [ext_resource type="Texture2D" uid="uid://ccd86fypb5855" path="res://assets/blocks_tileset.png" id="1_rl6k2"]
 [ext_resource type="Texture2D" uid="uid://dqryt7wrxhy3k" path="res://assets/trunk_tileset.png" id="1_wyayr"]
 [ext_resource type="Texture2D" uid="uid://wy1ju5tkw62i" path="res://assets/building_tileset.png" id="2_bgcj1"]
+[ext_resource type="Texture2D" uid="uid://dragwb4vynoox" path="res://assets/thorns_tileset.png" id="4_kehb3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jfamf"]
 texture = ExtResource("1_wyayr")
@@ -683,6 +684,19 @@ texture_region_size = Vector2i(8, 8)
 3:6/0/terrains_peering_bit/top_left_corner = 3
 3:6/0/terrains_peering_bit/top_side = 3
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3u7sc"]
+texture = ExtResource("4_kehb3")
+texture_region_size = Vector2i(8, 8)
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+
 [resource]
 tile_size = Vector2i(8, 8)
 physics_layer_0/collision_layer = 1
@@ -698,3 +712,4 @@ terrain_set_0/terrain_3/color = Color(0.783686, 0.738351, 0.151038, 1)
 sources/1 = SubResource("TileSetAtlasSource_07dpe")
 sources/2 = SubResource("TileSetAtlasSource_in4kv")
 sources/0 = SubResource("TileSetAtlasSource_jfamf")
+sources/3 = SubResource("TileSetAtlasSource_3u7sc")
