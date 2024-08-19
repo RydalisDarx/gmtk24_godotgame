@@ -143,15 +143,15 @@ func _physics_process(delta):
 		if active_upgrades["wall_cling"]:
 			ready_powers["wall_jump"] = true
 		wj_timer = 0
-    
+	
 	# Jump under various circumstances
 	if Input.is_action_just_pressed("jump"):
 		
 		# Wall jump
 		if is_on_wall_only() and (ready_powers["wall_jump"] or last_wj_dir != dir):
-			print(get_wall_normal())
+			#print(get_wall_normal())
 			var wj_dir := get_wall_normal().x * -1
-			print(wj_dir == dir)
+			#print(wj_dir == dir)
 			if wj_dir != dir:
 				dir = wj_dir
 			disable_jump_cutoff = true
