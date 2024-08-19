@@ -18,12 +18,12 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameController="*res://scripts/game_controller.gd"
+GPlayerProperties="*res://scripts/player_properties.gd"
 
 [display]
 
 window/size/viewport_width=480
 window/size/viewport_height=270
-window/size/mode=3
 window/size/resizable=false
 window/stretch/mode="viewport"
 
@@ -31,6 +31,10 @@ window/stretch/mode="viewport"
 
 Hazards="Things that can kill the player"
 "Item Pickups"="Things that grant the player an upgrade"
+
+[dotnet]
+
+project/assembly_name="GMTK 2024"
 
 [input]
 
