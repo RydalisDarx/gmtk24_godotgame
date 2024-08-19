@@ -6,7 +6,7 @@ var permanent_upgrades := {}
 func _init(upgrades =
 	{"double_jump":false,
 	"dash":false,
-	"wall_cling":false}):
+	"wall_cling":true}):
 	for upgrade in upgrades.keys():
 		permanent_upgrades[upgrade] = upgrades[upgrade]
 
