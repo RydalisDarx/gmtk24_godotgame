@@ -23,18 +23,22 @@ var m_Properties : PlayerProperties = null
 @export_range(2.0, 5.0) var overtime_gravity_increment := 30.0
 @export_range(0.1, 0.0) var cayote_time := 0.07
 @export_range(0.0, 3.0) var dash_cooldown_time := 1.0
+@export_range(0.0, 3.0) var wj_cooldown_time := 1.0
 @export_range(0.0, 1.0) var friction = 0.8
 @export_range(0.0 , 1.0) var acceleration = 0.25
 
 var overtime_gravity := 0.0
 var cayote_timer := 0.0
 var dash_timer := 0.0
+var wj_timer := 0.0
+var last_wj_dir := 0
 
 # dictionary of booleans setting whether a power is ready to be used moment to moment
 var ready_powers = {
 	"bonus_jump" = false,
 	"double_jump" = false,
-	"dash" = false
+	"dash" = false,
+	"wall_jump" = false
 }
 
 # Returns the player proeprties object
@@ -85,6 +89,20 @@ func _physics_process(delta):
 	else:
 		cayote_timer -= delta
 
+	if dash_timer > 0:
+		dash_timer -= delta
+	else:
+		if active_upgrades["dash"]:
+			ready_powers["dash"] = true
+		dash_timer = 0
+		
+	if wj_timer > 0:
+		wj_timer -= delta
+	else:
+		if active_upgrades["wall_cling"]:
+			ready_powers["wall_jump"] = true
+		wj_timer = 0
+
 	# Jump under various circumstances
 	if Input.is_action_just_pressed("jump"):
 		# Jump off ground
@@ -96,10 +114,13 @@ func _physics_process(delta):
 			velocity.y = jump_strength
 			animate("jump")
 		# Wall jump
-		elif is_on_wall_only() and active_upgrades["wall_cling"]:
+		elif is_on_wall_only() and (ready_powers["wall_jump"] or last_wj_dir != dir):
 			overtime_gravity = 0
 			velocity.y = jump_strength
-			velocity.x = jump_strength  * dir
+			velocity.x = jump_strength * 3 * dir
+			wj_timer = wj_cooldown_time	
+			ready_powers["wall_jump"] = false
+			last_wj_dir = dir
 		# Mid-air jump
 		elif ready_powers["double_jump"] or ready_powers["bonus_jump"]:
 			if ready_powers["double_jump"]:
@@ -113,14 +134,7 @@ func _physics_process(delta):
 	# Cut off jump velocity when releasing the jump button
 	if Input.is_action_just_released("jump") and velocity.y < 0:
 		velocity.y = 0
-		
-	if dash_timer > 0:
-		dash_timer -= delta
-	else:
-		if active_upgrades["dash"]:
-			ready_powers["dash"] = true
-		dash_timer = 0
-	
+			
 	# use dash
 	if Input.is_action_just_pressed("dash") and ready_powers["dash"]:
 		if velocity.x > 0:
