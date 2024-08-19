@@ -96,7 +96,7 @@ func _physics_process(delta):
 	else:
 		velocity.y = clampf(velocity.y, -terminal_velocity, terminal_velocity)
 
-	if not is_on_floor():
+	if not is_on_floor() and not is_on_wall():
 		animate("fall")
 
 	# Cayote Time
@@ -114,6 +114,8 @@ func _physics_process(delta):
 		
 	if is_on_wall():
 		wj_slide_timer -= delta
+		if not is_on_floor():
+			animate("wall_cling")
 	else:
 		wj_slide_timer = wj_cooldown_time
 		
@@ -203,6 +205,7 @@ func update_animation_blend(animation_blend: float):
 	animation_tree["parameters/fall/blend_position"] = animation_blend
 	animation_tree["parameters/land/blend_position"] = animation_blend
 	animation_tree["parameters/land_run/blend_position"] = animation_blend
+	animation_tree["parameters/wall_cling/blend_position"] = animation_blend
 
 func animate(animation_name: String):
 	if current_animation == animation_name:
