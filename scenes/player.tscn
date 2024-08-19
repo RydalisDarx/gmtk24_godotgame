@@ -1,7 +1,10 @@
-[gd_scene load_steps=55 format=3 uid="uid://beiqcohu2gu4g"]
+[gd_scene load_steps=58 format=3 uid="uid://beiqcohu2gu4g"]
 
 [ext_resource type="Script" path="res://scripts/basic_movement.gd" id="1_krgb4"]
 [ext_resource type="Texture2D" uid="uid://dp3elhbje8jhq" path="res://assets/player-Sheet.png" id="2_fkr47"]
+[ext_resource type="Texture2D" uid="uid://dygjyl6oll5mm" path="res://assets/double_jump-sheet.png" id="3_xgnpx"]
+[ext_resource type="Script" path="res://scripts/upgrade_sprite.gd" id="4_rl1us"]
+[ext_resource type="Texture2D" uid="uid://cybo33mk7agvm" path="res://assets/dash-sheet.png" id="5_yqtvn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fgbcy"]
 size = Vector2(12, 30)
@@ -934,10 +937,25 @@ position = Vector2(0, -15)
 shape = SubResource("RectangleShape2D_fgbcy")
 
 [node name="player_sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(0, -17)
 texture = ExtResource("2_fkr47")
 hframes = 8
 vframes = 7
+
+[node name="double_jump_upgrade" type="Sprite2D" parent="player_sprite"]
+texture = ExtResource("3_xgnpx")
+hframes = 8
+vframes = 7
+script = ExtResource("4_rl1us")
+upgrade_name = "double_jump"
+
+[node name="dash_upgrade" type="Sprite2D" parent="player_sprite"]
+texture = ExtResource("5_yqtvn")
+hframes = 8
+vframes = 7
+script = ExtResource("4_rl1us")
+upgrade_name = "dash"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

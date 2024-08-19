@@ -107,6 +107,9 @@ func _on_item_acquistion_hitbox_upgrade_collected(upgrade_name, permanent, durat
 	if upgrades.has(upgrade_name):
 		var had_upgrade = upgrades[upgrade_name]
 		upgrades[upgrade_name] = true
+
+		GameController.got_upgrade.emit(upgrade_name)
+
 		if not permanent and had_upgrade == false:
 			print("will last " + str(duration) + " seconds")
 			await get_tree().create_timer(duration).timeout
@@ -130,5 +133,6 @@ func animate(animation_name: String):
 
 	previous_animation = current_animation
 	current_animation = animation_name
+
 
 	animation_tree["parameters/playback"].travel(animation_name)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://bkvp8gau8wwut"]
+[gd_scene load_steps=30 format=4 uid="uid://bkvp8gau8wwut"]
 
 [ext_resource type="PackedScene" uid="uid://beiqcohu2gu4g" path="res://scenes/player.tscn" id="1_ow22n"]
 [ext_resource type="Texture2D" uid="uid://cknhu0w0pvhx3" path="res://assets/stage_1_forest_v4.png" id="1_uiw6e"]
@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://dxjei8kqjcq6l" path="res://assets/platforms.png" id="3_hu5p1"]
 [ext_resource type="Texture2D" uid="uid://hkghwjghtkfa" path="res://assets/log_moss.png" id="3_mrj3i"]
 [ext_resource type="Texture2D" uid="uid://d2xo0fim2hdch" path="res://assets/tree.png" id="3_wyji2"]
-[ext_resource type="PackedScene" path="res://scenes/PauseMenu.tscn" id="4_sejj6"]
 [ext_resource type="Texture2D" uid="uid://wy1ju5tkw62i" path="res://assets/building_tileset.png" id="5_7eyra"]
+[ext_resource type="Texture2D" uid="uid://dqryt7wrxhy3k" path="res://assets/trunk_tileset.png" id="9_bngwn"]
 [ext_resource type="Texture2D" uid="uid://dthsccrptu7ik" path="res://assets/blacony_tiles.png" id="9_dfrcu"]
 [ext_resource type="Texture2D" uid="uid://bk8tpdilu1ybv" path="res://assets/door.png" id="10_fjicu"]
 [ext_resource type="Texture2D" uid="uid://c0avaa6pcqev1" path="res://assets/tree_1.png" id="11_ssv1f"]
@@ -641,6 +641,81 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.696407, 0, 0.391027, 1)
 sources/0 = SubResource("TileSetAtlasSource_5fxmg")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a7bqm"]
+texture = ExtResource("9_bngwn")
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrain = 0
+0:0/0/terrains_peering_bit/bottom_side = 0
+1:0/0 = 0
+1:0/0/terrain_set = 0
+1:0/0/terrain = 0
+1:0/0/terrains_peering_bit/right_side = 0
+1:0/0/terrains_peering_bit/bottom_side = 0
+2:0/0 = 0
+2:0/0/terrain_set = 0
+2:0/0/terrain = 0
+2:0/0/terrains_peering_bit/right_side = 0
+2:0/0/terrains_peering_bit/left_side = 0
+3:0/0 = 0
+3:0/0/terrain_set = 0
+3:0/0/terrain = 0
+3:0/0/terrains_peering_bit/bottom_side = 0
+3:0/0/terrains_peering_bit/left_side = 0
+0:1/0 = 0
+0:1/0/terrain_set = 0
+0:1/0/terrain = 0
+0:1/0/terrains_peering_bit/bottom_side = 0
+0:1/0/terrains_peering_bit/top_side = 0
+1:1/0 = 0
+1:1/0/terrain_set = 0
+1:1/0/terrain = 0
+1:1/0/terrains_peering_bit/bottom_side = 0
+1:1/0/terrains_peering_bit/top_side = 0
+3:1/0 = 0
+3:1/0/terrain_set = 0
+3:1/0/terrain = 0
+3:1/0/terrains_peering_bit/bottom_side = 0
+3:1/0/terrains_peering_bit/top_side = 0
+0:2/0 = 0
+0:2/0/terrain_set = 0
+0:2/0/terrain = 0
+0:2/0/terrains_peering_bit/top_side = 0
+1:2/0 = 0
+1:2/0/terrain_set = 0
+1:2/0/terrain = 0
+1:2/0/terrains_peering_bit/right_side = 0
+1:2/0/terrains_peering_bit/top_side = 0
+2:2/0 = 0
+2:2/0/terrain_set = 0
+2:2/0/terrain = 0
+2:2/0/terrains_peering_bit/right_side = 0
+2:2/0/terrains_peering_bit/left_side = 0
+3:2/0 = 0
+3:2/0/terrain_set = 0
+3:2/0/terrain = 0
+3:2/0/terrains_peering_bit/left_side = 0
+3:2/0/terrains_peering_bit/top_side = 0
+1:3/0 = 0
+1:3/0/terrain_set = 0
+1:3/0/terrain = 0
+1:3/0/terrains_peering_bit/right_side = 0
+2:3/0 = 0
+2:3/0/terrain_set = 0
+2:3/0/terrain = 0
+2:3/0/terrains_peering_bit/right_side = 0
+2:3/0/terrains_peering_bit/left_side = 0
+3:3/0 = 0
+3:3/0/terrain_set = 0
+3:3/0/terrain = 0
+3:3/0/terrains_peering_bit/left_side = 0
+
+[sub_resource type="TileSet" id="TileSet_8joky"]
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Terrain 0"
+terrain_set_0/terrain_0/color = Color(0.90094, 0.10536, 0, 1)
+sources/0 = SubResource("TileSetAtlasSource_a7bqm")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fpqh2"]
 size = Vector2(16, 8)
 
@@ -738,9 +813,12 @@ tile_map_data = PackedByteArray("AAApACIAAQACAAEAAAApACEAAQACAAEAAAApACAAAQACAAE
 tile_set = SubResource("TileSet_2ueod")
 
 [node name="+2" type="TileMapLayer" parent="Tiles"]
-visible = false
 tile_map_data = PackedByteArray("AAAHAAAAAAACAAAAAAAGAAAAAAABAAAAAAAFAAAAAAABAAAAAAAEAAAAAAAAAAAAAAADAP7/AAACAAAAAAACAP7/AAABAAAAAAABAP7/AAAAAAAAAAA=")
 tile_set = SubResource("TileSet_3e3xc")
+
+[node name="trunk" type="TileMapLayer" parent="Tiles"]
+tile_map_data = PackedByteArray("AABCAAMAAAADAAAAAABBAAMAAAABAAIAAABBAAIAAAAAAAAAAABCAAQAAAABAAEAAABCAAUAAAABAAIAAABDAAUAAAACAAIAAABEAAUAAAADAAIAAABCAAgAAAADAAIAAABDAAgAAAABAAEAAABDAAcAAAADAAAAAABCAAcAAAABAAAAAABDAAkAAAAAAAEAAABBAAkAAAADAAIAAABBAAgAAAABAAAAAABAAAkAAAACAAAAAAA/AAkAAAACAAAAAAA+AAkAAAABAAMAAABDAAoAAAAAAAIAAAA=")
+tile_set = SubResource("TileSet_8joky")
 
 [node name="log_moss" type="StaticBody2D" parent="."]
 
@@ -795,9 +873,6 @@ autoplay = "moving"
 position = Vector2(43.0802, 188.891)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("4_sejj6")]
-metadata/_edit_lock_ = true
 
 [node name="Tree2" type="Sprite2D" parent="."]
 visible = false
