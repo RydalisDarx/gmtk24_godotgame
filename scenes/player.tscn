@@ -1070,15 +1070,10 @@ curve = SubResource("Curve_pi55s")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5n652"]
 particle_flag_disable_z = true
 emission_shape_offset = Vector3(0, 1.23, 0)
-emission_shape = 6
-emission_ring_axis = Vector3(0, -3.51, 1)
-emission_ring_height = 1.0
-emission_ring_radius = 3.72
-emission_ring_inner_radius = 0.0
-direction = Vector3(0, 1, 0)
-spread = 30.0
-initial_velocity_max = 45.53
-gravity = Vector3(0, 0, 0)
+direction = Vector3(8.155, 7.02, 0)
+spread = 32.359
+initial_velocity_max = 10.74
+gravity = Vector3(0, 7.965, 0)
 alpha_curve = SubResource("CurveTexture_xucxh")
 
 [sub_resource type="Curve" id="Curve_bbco5"]
@@ -1180,6 +1175,27 @@ metadata/_edit_lock_ = true
 unique_name_in_owner = true
 emitting = false
 amount = 60
+process_material = SubResource("ParticleProcessMaterial_5n652")
+texture = ExtResource("8_oh8uh")
+lifetime = 0.25
+one_shot = true
+explosiveness = 0.67
+
+[node name="landing_particles" type="GPUParticles2D" parent="."]
+unique_name_in_owner = true
+emitting = false
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_5n652")
+texture = ExtResource("8_oh8uh")
+lifetime = 0.25
+one_shot = true
+explosiveness = 0.67
+
+[node name="wall_cling_particles" type="GPUParticles2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-6, -4)
+emitting = false
+amount = 200
 process_material = SubResource("ParticleProcessMaterial_5n652")
 texture = ExtResource("8_oh8uh")
 lifetime = 0.25

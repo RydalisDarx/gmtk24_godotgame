@@ -1,6 +1,7 @@
 [gd_scene load_steps=26 format=4 uid="uid://p6e8xffftmnb"]
 
 [ext_resource type="Texture2D" uid="uid://brkrc6rs36ouy" path="res://assets/stage_1_forest_v3.png" id="1_dx3g7"]
+
 [ext_resource type="Script" path="res://scripts/scene_logic.gd" id="1_q0qbh"]
 [ext_resource type="TileSet" uid="uid://ba24m0uinmh66" path="res://assets/full_tileset.tres" id="2_f2obd"]
 [ext_resource type="Texture2D" uid="uid://1spg1p870bkr" path="res://assets/mr_president.png" id="4_5veh7"]
