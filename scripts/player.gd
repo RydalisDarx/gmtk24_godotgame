@@ -17,7 +17,7 @@ var m_Properties : PlayerProperties = null
 	"bonus_jump" = false,
 	"double_jump" = false,
 	"dash" = false,
-	"wall_cling" = false
+	"wall_cling" = true
 }
 
 @export_range(2.0, 5.0) var overtime_gravity_increment := 30.0
@@ -34,8 +34,7 @@ var dash_timer := 0.0
 var ready_powers = {
 	"bonus_jump" = false,
 	"double_jump" = false,
-	"dash" = false,
-	"wall_cling" = false
+	"dash" = false
 }
 
 # Returns the player proeprties object
@@ -59,7 +58,10 @@ func _physics_process(delta):
 
 	# Apply gravity
 	velocity.y += (gravity + overtime_gravity) * delta
-	clampf(velocity.y, -terminal_velocity, terminal_velocity)
+	if active_upgrades["wall_cling"] and is_on_wall() and velocity.y > 0:
+		velocity.y = clampf(velocity.y, 0.25 * -terminal_velocity, 0.25 * terminal_velocity)
+	else:
+		velocity.y = clampf(velocity.y, -terminal_velocity, terminal_velocity)
 
 	# Input affects x axis only
 	var dir = Input.get_axis("walk_left", "walk_right")
@@ -83,22 +85,30 @@ func _physics_process(delta):
 	else:
 		cayote_timer -= delta
 
-	# Only allow jumping when on the ground
-	if Input.is_action_just_pressed("jump") and cayote_timer > 0:
-		if active_upgrades["double_jump"]:
-			ready_powers["double_jump"] = true
-		if active_upgrades["bonus_jump"]:
-			ready_powers["bonus_jump"] = true
-		velocity.y = jump_strength
-		animate("jump")
-		
-	if Input.is_action_just_pressed("jump") and cayote_timer < 0 and (ready_powers["double_jump"] or ready_powers["bonus_jump"]):
-		if ready_powers["double_jump"]:
-			ready_powers["double_jump"] = false
-		else:
-			ready_powers["bonus_jump"] = false
-		velocity.y = jump_strength
-		animate("jump")
+	# Jump under various circumstances
+	if Input.is_action_just_pressed("jump"):
+		# Jump off ground
+		if cayote_timer > 0:
+			if active_upgrades["double_jump"]:
+				ready_powers["double_jump"] = true
+			if active_upgrades["bonus_jump"]:
+				ready_powers["bonus_jump"] = true
+			velocity.y = jump_strength
+			animate("jump")
+		# Wall jump
+		elif is_on_wall_only() and active_upgrades["wall_cling"]:
+			overtime_gravity = 0
+			velocity.y = jump_strength
+			velocity.x = jump_strength  * dir
+		# Mid-air jump
+		elif ready_powers["double_jump"] or ready_powers["bonus_jump"]:
+			if ready_powers["double_jump"]:
+				ready_powers["double_jump"] = false
+			else:
+				ready_powers["bonus_jump"] = false
+			overtime_gravity = 0
+			velocity.y = jump_strength
+			animate("jump")
 	
 	# Cut off jump velocity when releasing the jump button
 	if Input.is_action_just_released("jump") and velocity.y < 0:
