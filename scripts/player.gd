@@ -60,7 +60,7 @@ func SetProperties(properties: PlayerProperties) -> void:
 	m_Properties = PlayerProperties.new(perm_upgrades)
 	
 	for upgrade in perm_upgrades.keys():
-		active_upgrades[upgrade] = perm_upgrades[upgrade]
+		active_upgrades[upgrade] = perm_upgrades[upgrade] or active_upgrades[upgrade]
 
 		if active_upgrades[upgrade]:
 			GameController.upgrade_loaded.emit(upgrade)
