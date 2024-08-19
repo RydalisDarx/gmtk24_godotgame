@@ -134,6 +134,13 @@ func _on_item_acquistion_hitbox_upgrade_collected(upgrade_name, permanent, durat
 			await get_tree().create_timer(duration).timeout
 			active_upgrades[upgrade_name] = false
 			print("PLAYER: upgrade " + str(upgrade_name) + " wore off")
+			
+func _on_hazard_collision():
+	print("death")
+	call_deferred("reload")
+	
+func reload():
+	get_tree().reload_current_scene()
 
 
 func update_animation_blend(animation_blend: float):
