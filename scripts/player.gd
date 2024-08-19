@@ -23,14 +23,17 @@ var m_Properties : PlayerProperties = null
 @export_range(2.0, 5.0) var overtime_gravity_increment := 30.0
 @export_range(0.1, 0.0) var cayote_time := 0.07
 @export_range(0.0, 3.0) var dash_cooldown_time := 1.0
-@export_range(0.0, 3.0) var wj_cooldown_time := 1.0
+@export_range(0.0, 3.0) var wj_cooldown_time := 1.25
+@export_range(0.0, 1.0) var wj_time_before_slide := 0.25
 @export_range(0.0, 1.0) var friction = 0.8
 @export_range(0.0 , 1.0) var acceleration = 0.25
 
+var dir := 0
 var overtime_gravity := 0.0
 var cayote_timer := 0.0
 var dash_timer := 0.0
 var wj_timer := 0.0
+var wj_slide_timer := 0.0
 var last_wj_dir := 0
 
 # dictionary of booleans setting whether a power is ready to be used moment to moment
@@ -60,15 +63,9 @@ func _physics_process(delta):
 	else:
 		overtime_gravity = 0
 
-	# Apply gravity
-	velocity.y += (gravity + overtime_gravity) * delta
-	if active_upgrades["wall_cling"] and is_on_wall() and velocity.y > 0:
-		velocity.y = clampf(velocity.y, 0.25 * -terminal_velocity, 0.25 * terminal_velocity)
-	else:
-		velocity.y = clampf(velocity.y, -terminal_velocity, terminal_velocity)
-
 	# Input affects x axis only
-	var dir = Input.get_axis("walk_left", "walk_right")
+	if wj_timer < wj_cooldown_time - 0.15: #not set if just wall jumped
+		dir = Input.get_axis("walk_left", "walk_right")
 
 	if dir != 0:
 		update_animation_blend(dir)
@@ -79,6 +76,15 @@ func _physics_process(delta):
 
 		if is_on_floor():
 			animate("idle")
+
+	# Apply gravity
+	velocity.y += (gravity + overtime_gravity) * delta
+	if active_upgrades["wall_cling"] and is_on_wall() and velocity.y > 0 and dir != 0:
+		velocity.y = clampf(velocity.y, 0.25 * -terminal_velocity, 0.25 * terminal_velocity)
+		if wj_slide_timer > 0:
+			velocity.y = 0.0
+	else:
+		velocity.y = clampf(velocity.y, -terminal_velocity, terminal_velocity)
 
 	if not is_on_floor():
 		animate("fall")
@@ -95,6 +101,11 @@ func _physics_process(delta):
 		if active_upgrades["dash"]:
 			ready_powers["dash"] = true
 		dash_timer = 0
+		
+	if is_on_wall():
+		wj_slide_timer -= delta
+	else:
+		wj_slide_timer = wj_cooldown_time
 		
 	if wj_timer > 0:
 		wj_timer -= delta
@@ -116,11 +127,12 @@ func _physics_process(delta):
 		# Wall jump
 		elif is_on_wall_only() and (ready_powers["wall_jump"] or last_wj_dir != dir):
 			overtime_gravity = 0
-			velocity.y = jump_strength
-			velocity.x = jump_strength * 3 * dir
+			velocity.y = jump_strength * 1.5
+			velocity.x = jump_strength * 2 * dir
 			wj_timer = wj_cooldown_time	
 			ready_powers["wall_jump"] = false
 			last_wj_dir = dir
+			dir *= -1
 		# Mid-air jump
 		elif ready_powers["double_jump"] or ready_powers["bonus_jump"]:
 			if ready_powers["double_jump"]:
