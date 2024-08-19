@@ -113,8 +113,37 @@ func _physics_process(delta):
 			%wall_cling_particles.emitting=true
 	else:
 		velocity.y = clampf(velocity.y, -terminal_velocity, terminal_velocity)
-	
-	
+
+	if not is_on_floor() and not is_on_wall():
+		animate("fall")
+
+	# Cayote Time
+	if is_on_floor():
+		cayote_timer = cayote_time
+	else:
+		cayote_timer -= delta
+
+	if dash_timer > 0:
+		dash_timer -= delta
+	else:
+		if active_upgrades["dash"]:
+			ready_powers["dash"] = true
+		dash_timer = 0
+		
+	if is_on_wall():
+		wj_slide_timer -= delta
+		if not is_on_floor():
+			animate("wall_cling")
+	else:
+		wj_slide_timer = wj_cooldown_time
+		
+	if wj_timer > 0:
+		wj_timer -= delta
+	else:
+		if active_upgrades["wall_cling"]:
+			ready_powers["wall_jump"] = true
+		wj_timer = 0
+    
 	# Jump under various circumstances
 	if Input.is_action_just_pressed("jump"):
 		
@@ -243,6 +272,7 @@ func update_animation_blend(animation_blend: float):
 	animation_tree["parameters/fall/blend_position"] = animation_blend
 	animation_tree["parameters/land/blend_position"] = animation_blend
 	animation_tree["parameters/land_run/blend_position"] = animation_blend
+	animation_tree["parameters/wall_cling/blend_position"] = animation_blend
 
 func animate(animation_name: String):
 	if current_animation == animation_name:
