@@ -249,7 +249,7 @@ position = Vector2(276, 599)
 scenename = "test_alt_scene"
 
 [node name="LevelPortal2" parent="." instance=ExtResource("6_er7b2")]
-position = Vector2(1028, 583)
+position = Vector2(866, 602)
 scenename = "tileset_test"
 
 [node name="Player" parent="." instance=ExtResource("1_ow22n")]
