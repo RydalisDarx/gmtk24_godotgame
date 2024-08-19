@@ -1,6 +1,6 @@
 extends Sprite2D
 
-@export var upgrade_name: String
+@export var triggered_by_upgrades: Array[String]
 
 var player_sprite: Sprite2D
 var brightness := 1.0
@@ -14,16 +14,39 @@ func _ready() -> void:
 	material = ShaderMaterial.new()
 	material.shader = preload("res://scripts/shaders/brightness.gdshader")
 
+
+
 	player_sprite.frame_changed.connect(
 		func():
 			frame = player_sprite.frame
 	)
 
 	GameController.got_upgrade.connect(
-		func(player_upgrade_name: String):
-			if player_upgrade_name == upgrade_name:
+		func(upgrade_name: String):
+			if triggered_by_upgrades.has(upgrade_name):
+
+				if upgrade_name == "bonus_jump":
+					modulate = Color("#00ff00")
+
 				visible = true
 				flash()
+	)
+
+	GameController.lost_upgrade.connect(
+		func(upgrade_name: String):
+			if triggered_by_upgrades.has(upgrade_name):
+				flash()
+				var tw = get_tree().create_tween()
+				tw.tween_property(self, "modulate:a", 0.0, 1.0)
+				await tw.finished
+				modulate = Color(1, 1, 1, 1)
+				visible = false
+	)
+
+	GameController.upgrade_loaded.connect(
+		func(upgrade_name: String):
+			if triggered_by_upgrades.has(upgrade_name):
+				visible = true
 	)
 
 func _process(_delta):
@@ -35,8 +58,9 @@ func _process(_delta):
 
 	material.set_shader_parameter("brightness", brightness)
 
-func flash():
-	var tw = get_tree().create_tween()
-
+func flash(length := 0.25):
 	brightness = 10.0
-	tw.tween_property(self, "brightness", 1.0, 0.5)
+
+	var tw = get_tree().create_tween()
+	tw.tween_property(self, "brightness", 1.0, length)
+	await tw.finished

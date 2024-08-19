@@ -1,6 +1,8 @@
 extends Node
 
 signal got_upgrade(upgrade_name: String)
+signal lost_upgrade(upgrade_name: String)
+signal upgrade_loaded(upgrade_name: String)
 
 func _ready() -> void:
 
