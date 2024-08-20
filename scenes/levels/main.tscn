@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dxjei8kqjcq6l" path="res://assets/platforms.png" id="3_hu5p1"]
 [ext_resource type="PackedScene" uid="uid://e8cg0d371vkq" path="res://scenes/world_objects/item_acquistion_hitbox.tscn" id="5_6us5t"]
 [ext_resource type="PackedScene" uid="uid://b5dhwryicmp6o" path="res://scenes/world_objects/level_portal.tscn" id="6_er7b2"]
-[ext_resource type="PackedScene" uid="uid://cf74236kpuvbg" path="res://scenes/hazard.tscn" id="7_rsxrh"]
+[ext_resource type="PackedScene" path="res://scenes/hazard.tscn" id="7_rsxrh"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1quo5"]
 bounce = 0.12

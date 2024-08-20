@@ -1,24 +1,24 @@
 extends Control
 
-# Called when the node enters the scene tree for the first time.
+@onready var start_button = $"%StartButton"
+@onready var quit_button = $"%QuitButton"
+@onready var animation_player = $"%animation_player"
+
+
 func _ready() -> void:
-	$StartButton.grab_focus()
-	pass # Replace with function body.
 
+	animation_player.play("fade_in")
+	await animation_player.animation_finished
+	start_button.grab_focus()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
+	start_button.button_down.connect(
+		func():
+			animation_player.play('start_game')
+			await animation_player.animation_finished
+			get_tree().change_scene_to_file("res://scenes/levels/main.tscn")
+	)
 
-
-func _on_start_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/levels/main.tscn")
-
-
-func _on_quit_button_pressed() -> void:
-	get_tree().quit()
-
-
-func _on_settings_button_pressed() -> void:
-	
-	pass # Replace with function body.
+	quit_button.button_down.connect(
+		func():
+				get_tree().quit()
+	)
