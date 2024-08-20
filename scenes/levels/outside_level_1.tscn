@@ -333,7 +333,7 @@ scenename = "level_2"
 
 [node name="MusicPlayer" parent="." instance=ExtResource("18_0fgsl")]
 stream = ExtResource("19_rabgp")
-bus = &"BGM"
+bus = &"Master"
 
 [connection signal="body_entered" from="Background Objects/Tree/Area2D" to="Background Objects/Tree" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Background Objects/Tree/Area2D" to="Background Objects/Tree" method="_on_area_2d_body_exited"]

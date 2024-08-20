@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://1spg1p870bkr" path="res://assets/mr_president.png" id="3_nj10f"]
 [ext_resource type="Texture2D" uid="uid://bk8tpdilu1ybv" path="res://assets/door.png" id="3_v37bh"]
 [ext_resource type="Texture2D" uid="uid://btbt1kkngktcr" path="res://assets/chair.png" id="4_w1f3a"]
-[ext_resource type="PackedScene" uid="uid://b5dhwryicmp6o" path="res://scenes/world_objects/level_portal.tscn" id="5_0jodt"]
+[ext_resource type="PackedScene" uid="uid://c00dnb2j7nvmq" path="res://scenes/world_objects/level_portal.tscn" id="5_0jodt"]
 [ext_resource type="Texture2D" uid="uid://dthsccrptu7ik" path="res://assets/blacony_tiles.png" id="5_2pben"]
 [ext_resource type="PackedScene" uid="uid://e8cg0d371vkq" path="res://scenes/world_objects/item_acquistion_hitbox.tscn" id="7_lsmt0"]
 [ext_resource type="Script" path="res://scripts/hazard.gd" id="7_o2omw"]
