@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Player
 
+signal reloading
+
 @export var speed := 200.0
 @export var jump_strength := -300.0
 @export var gravity := 675.0
@@ -67,6 +69,7 @@ func SetProperties(properties: PlayerProperties) -> void:
 
 func _ready():
 	original_particle_pos = %wall_cling_particles.position.x
+	reloading.connect(get_tree().current_scene._reload)
 
 func _physics_process(delta):
 	if dir != 0:
@@ -229,7 +232,7 @@ func _on_hazard_collision():
 	call_deferred("reload")
 	
 func reload():
-	get_tree().reload_current_scene()
+	reloading.emit()
 
 func is_holding_grab() -> bool:
 	return Input.is_action_pressed("wall_cling")

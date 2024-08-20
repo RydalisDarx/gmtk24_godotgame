@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://nlpiwxh7hpjt"]
+[gd_scene load_steps=18 format=4 uid="uid://nlpiwxh7hpjt"]
 
 [ext_resource type="Script" path="res://scripts/scene_logic.gd" id="1_ndmry"]
 [ext_resource type="PackedScene" uid="uid://beiqcohu2gu4g" path="res://scenes/player.tscn" id="2_22jnc"]
@@ -11,6 +11,8 @@
 [ext_resource type="Script" path="res://scripts/hazard.gd" id="7_o2omw"]
 [ext_resource type="PackedScene" uid="uid://cf74236kpuvbg" path="res://scenes/hazard.tscn" id="7_x6h14"]
 [ext_resource type="Texture2D" uid="uid://brkrc6rs36ouy" path="res://assets/stage_1_forest_v3.png" id="10_e56wt"]
+[ext_resource type="PackedScene" uid="uid://bnemj4k20asn" path="res://scenes/miscellaneous/music_player.tscn" id="12_hnsqv"]
+[ext_resource type="AudioStream" uid="uid://77v21v0jqbkm" path="res://audio/music/level_three.wav" id="13_cpng2"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_re8h5"]
 bounce = 0.12
@@ -284,5 +286,8 @@ script = ExtResource("7_o2omw")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Death bottom"]
 position = Vector2(695.5, 441)
 shape = SubResource("RectangleShape2D_07lyx")
+
+[node name="MusicPlayer" parent="." instance=ExtResource("12_hnsqv")]
+stream = ExtResource("13_cpng2")
 
 [connection signal="body_entered" from="Death bottom" to="Death bottom" method="_on_body_entered"]
