@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://e8cg0d371vkq" path="res://scenes/world_objects/item_acquistion_hitbox.tscn" id="11_pnsku"]
 [ext_resource type="Texture2D" uid="uid://dthsccrptu7ik" path="res://assets/blacony_tiles.png" id="12_ydd0i"]
 [ext_resource type="FontFile" uid="uid://b5eibttpb7bp4" path="res://assets/font/at01.ttf" id="14_jh0n6"]
-[ext_resource type="PackedScene" uid="uid://c00dnb2j7nvmq" path="res://scenes/world_objects/level_portal.tscn" id="16_g5m2u"]
+[ext_resource type="PackedScene" uid="uid://b5dhwryicmp6o" path="res://scenes/world_objects/level_portal.tscn" id="16_g5m2u"]
 [ext_resource type="PackedScene" uid="uid://bnemj4k20asn" path="res://scenes/miscellaneous/music_player.tscn" id="18_0fgsl"]
 [ext_resource type="AudioStream" uid="uid://dhd4fe3yv2w6l" path="res://audio/music/level_one.wav" id="19_rabgp"]
 [ext_resource type="Texture2D" uid="uid://lu0r315jkks0" path="res://assets/png-clipart-waving-bear-bear-brown-bear-1276212616.png" id="20_3h2dy"]
@@ -27,8 +27,8 @@ bounce = 0.12
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qihng"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dq3fi"]
-radius = 106.0
-height = 340.0
+radius = 191.0
+height = 392.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gdp8c"]
 size = Vector2(287.213, 20)
@@ -51,12 +51,34 @@ script = ExtResource("1_q0qbh")
 [node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color(0.65345, 0.657679, 0.675899, 1)
 z_index = -3
-offset_left = -6.0
-offset_top = -688.0
-offset_right = 2204.0
-offset_bottom = 202.0
+offset_left = 78.0
+offset_top = -675.0
+offset_right = 2288.0
+offset_bottom = 215.0
 texture = ExtResource("1_dx3g7")
-stretch_mode = 1
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+modulate = Color(0.65345, 0.657679, 0.675899, 1)
+z_index = -3
+offset_left = -713.0
+offset_top = -676.0
+offset_right = 1497.0
+offset_bottom = 214.0
+texture = ExtResource("1_dx3g7")
+stretch_mode = 4
+flip_h = true
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+modulate = Color(0.65345, 0.657679, 0.675899, 1)
+z_index = -3
+offset_left = 1894.0
+offset_top = -694.0
+offset_right = 4104.0
+offset_bottom = 196.0
+texture = ExtResource("1_dx3g7")
+stretch_mode = 4
+flip_h = true
 
 [node name="World Borders" type="Node2D" parent="."]
 
@@ -79,6 +101,7 @@ rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_qihng")
 
 [node name="Tiles" type="Node2D" parent="."]
+metadata/_edit_group_ = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Tiles"]
 z_index = 1
@@ -106,6 +129,18 @@ z_index = -1
 position = Vector2(1323, 70)
 texture = ExtResource("4_c6j1t")
 
+[node name="Door2" type="Sprite2D" parent="Background Objects"]
+modulate = Color(0.581033, 0.581033, 0.581033, 1)
+z_index = -1
+position = Vector2(1332, -318)
+texture = ExtResource("4_c6j1t")
+
+[node name="Door3" type="Sprite2D" parent="Background Objects"]
+modulate = Color(0.581033, 0.581033, 0.581033, 1)
+z_index = -1
+position = Vector2(1575, -543)
+texture = ExtResource("4_c6j1t")
+
 [node name="MrPresident" type="Sprite2D" parent="Background Objects"]
 z_index = -1
 position = Vector2(295, 123)
@@ -125,7 +160,7 @@ script = ExtResource("6_r1c1o")
 [node name="Area2D" type="Area2D" parent="Background Objects/Tree"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Background Objects/Tree/Area2D"]
-position = Vector2(17, -1)
+position = Vector2(17, -56)
 shape = SubResource("CapsuleShape2D_dq3fi")
 one_way_collision_margin = 0.0
 
@@ -145,6 +180,18 @@ texture = ExtResource("7_y1c85")
 modulate = Color(0.650128, 0.650128, 0.650128, 1)
 z_index = -1
 position = Vector2(1227, 115)
+texture = ExtResource("8_5582w")
+
+[node name="Chair2" type="Sprite2D" parent="Background Objects"]
+modulate = Color(0.650128, 0.650128, 0.650128, 1)
+z_index = -1
+position = Vector2(1210, -511)
+texture = ExtResource("8_5582w")
+
+[node name="Chair3" type="Sprite2D" parent="Background Objects"]
+modulate = Color(0.650128, 0.650128, 0.650128, 1)
+z_index = -1
+position = Vector2(1132, -511)
 texture = ExtResource("8_5582w")
 
 [node name="Log" type="Sprite2D" parent="Background Objects"]
@@ -186,6 +233,25 @@ z_index = -1
 position = Vector2(1426, 114)
 texture = ExtResource("9_bk0mn")
 
+[node name="HousePlant2" type="Sprite2D" parent="Background Objects"]
+modulate = Color(0.617455, 0.617455, 0.617455, 1)
+z_index = -1
+position = Vector2(991, -276)
+texture = ExtResource("9_bk0mn")
+
+[node name="HousePlant3" type="Sprite2D" parent="Background Objects"]
+modulate = Color(0.617455, 0.617455, 0.617455, 1)
+z_index = -1
+position = Vector2(1658, -274)
+texture = ExtResource("9_bk0mn")
+
+[node name="HousePlant4" type="Sprite2D" parent="Background Objects"]
+modulate = Color(0.617455, 0.617455, 0.617455, 1)
+z_index = -1
+position = Vector2(1775, -272)
+texture = ExtResource("9_bk0mn")
+flip_h = true
+
 [node name="Rock1" type="Sprite2D" parent="Background Objects"]
 position = Vector2(432, 91)
 scale = Vector2(0.274999, 0.274999)
@@ -195,6 +261,18 @@ script = ExtResource("6_r1c1o")
 [node name="Area2D" type="Area2D" parent="Background Objects/Rock1"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Background Objects/Rock1/Area2D"]
+position = Vector2(-167.273, 181.819)
+shape = SubResource("CircleShape2D_d5tg1")
+
+[node name="Rock2" type="Sprite2D" parent="Background Objects"]
+position = Vector2(941, 109)
+scale = Vector2(0.274999, 0.274999)
+texture = ExtResource("11_pfsjq")
+script = ExtResource("6_r1c1o")
+
+[node name="Area2D" type="Area2D" parent="Background Objects/Rock2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background Objects/Rock2/Area2D"]
 position = Vector2(-167.273, 181.819)
 shape = SubResource("CircleShape2D_d5tg1")
 
@@ -209,6 +287,14 @@ position = Vector2(1, 43)
 shape = SubResource("RectangleShape2D_3o4nr")
 one_way_collision = true
 one_way_collision_margin = 4.9
+
+[node name="BlaconyTiles2" type="Sprite2D" parent="Background Objects"]
+position = Vector2(1125, -501)
+texture = ExtResource("12_ydd0i")
+
+[node name="BlaconyTiles3" type="Sprite2D" parent="Background Objects"]
+position = Vector2(1577, -503)
+texture = ExtResource("12_ydd0i")
 
 [node name="BlaconyTiles4" type="Sprite2D" parent="Background Objects"]
 position = Vector2(1338, -271)
@@ -277,12 +363,6 @@ upgrade_name = "double_jump"
 duration = 1.2
 reappear_time = 2
 
-[node name="Item Acquistion Hitbox7" parent="Collectables" instance=ExtResource("11_pnsku")]
-position = Vector2(1855, -246)
-upgrade_name = "double_jump"
-duration = 1.2
-reappear_time = 2
-
 [node name="Player" parent="." instance=ExtResource("6_6s7hy")]
 position = Vector2(227, 129)
 
@@ -316,6 +396,30 @@ text = "Hold jump to go higher!"
 label_settings = SubResource("LabelSettings_lvo6j")
 horizontal_alignment = 1
 
+[node name="Label6" type="Label" parent="."]
+z_index = 4
+offset_left = 1596.0
+offset_top = -171.0
+offset_right = 1733.0
+offset_bottom = -126.0
+text = "Your robot senses
+point you in this direction!
+<---"
+label_settings = SubResource("LabelSettings_lvo6j")
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="."]
+z_index = 4
+offset_left = 1654.0
+offset_top = -393.0
+offset_right = 1791.0
+offset_bottom = -348.0
+text = "Go in the trees to
+recover your climbing equipment!
+-->"
+label_settings = SubResource("LabelSettings_lvo6j")
+horizontal_alignment = 1
+
 [node name="Label4" type="Label" parent="."]
 z_index = 4
 offset_left = 967.0
@@ -329,9 +433,13 @@ horizontal_alignment = 1
 
 [node name="LevelPortal" parent="." instance=ExtResource("16_g5m2u")]
 z_index = -1
-position = Vector2(2037, -388)
+position = Vector2(1949, -345)
 scale = Vector2(12.08, 11.96)
 scenename = "level_2"
+
+[node name="CollisionShape2D" parent="LevelPortal" index="0"]
+position = Vector2(7.69867, -30.1003)
+scale = Vector2(1, 1)
 
 [node name="MusicPlayer" parent="." instance=ExtResource("18_0fgsl")]
 stream = ExtResource("19_rabgp")
@@ -350,3 +458,7 @@ texture = ExtResource("20_3h2dy")
 [connection signal="body_exited" from="Background Objects/Tree5/Area2D" to="Background Objects/Tree5" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="Background Objects/Rock1/Area2D" to="Background Objects/Rock1" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Background Objects/Rock1/Area2D" to="Background Objects/Rock1" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Background Objects/Rock2/Area2D" to="Background Objects/Rock2" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Background Objects/Rock2/Area2D" to="Background Objects/Rock2" method="_on_area_2d_body_exited"]
+
+[editable path="LevelPortal"]

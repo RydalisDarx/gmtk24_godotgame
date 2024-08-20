@@ -1,6 +1,7 @@
 extends Control
 
 @onready var focus_button = $PanelContainer/VBoxContainer/ResumeButton;
+const SETTINGS_MENU = preload("res://scenes/screens/SettingsMenu.tscn")
 
 func resume() -> void:
 	$PanelContainer/VBoxContainer.visible = false
@@ -29,15 +30,14 @@ func _ready() -> void:
 	$PanelContainer/VBoxContainer.visible = false
 	$AnimationPlayer.play("RESET")
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	escaping()
 
 
 func _on_settings_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/screens/SettingsMenu.tscn")
-	pass # Replace with function body.
+	resume()
+	SceneManager.stopMusic()
+	get_tree().change_scene_to_packed(SETTINGS_MENU)
 
 
 func _on_restart_button_pressed() -> void:

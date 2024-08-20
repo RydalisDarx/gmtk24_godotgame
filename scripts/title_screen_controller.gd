@@ -12,7 +12,9 @@ func _ready() -> void:
 	animation_player.play("fade_in")
 	await animation_player.animation_finished
 	start_button.grab_focus()
-
+	if SceneManager.currentScene != get_tree().current_scene.scene_file_path:
+		SceneManager.currentScene = get_tree().current_scene.scene_file_path
+	
 	start_button.button_down.connect(
 		func():
 			animation_player.play('start_game')
@@ -34,4 +36,3 @@ func _ready() -> void:
 		func():
 				get_tree().change_scene_to_file("res://scenes/screens/credits.tscn")
 	)
-	

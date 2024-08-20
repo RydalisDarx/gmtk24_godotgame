@@ -21,7 +21,7 @@ var m_Properties : PlayerProperties = null
 	"bonus_jump" = false,
 	"double_jump" = false,
 	"dash" = false,
-	"wall_cling" = false
+	"wall_cling" = true
 }
 
 @export_range(2.0, 5.0) var overtime_gravity_increment := 30.0

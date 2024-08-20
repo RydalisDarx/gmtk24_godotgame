@@ -37,6 +37,7 @@ project/assembly_name="GMTK 2024"
 
 Hazards="Things that can kill the player"
 "Item Pickups"="Things that grant the player an upgrade"
+Player=""
 
 [input]
 

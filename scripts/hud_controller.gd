@@ -30,8 +30,8 @@ func _on_upgrade_collected(upgrade_name, permanent, duration):
 			upgrade_text = "temporary forward dash"
 		
 		
-func _on_upgrade_lost(upgrade_name):
-	pass
+#func _on_upgrade_lost(upgrade_name):
+	#pass
 
 func popup_text(text_to_display: String) -> void: 
 	if (text_to_display == "wall_cling"): 

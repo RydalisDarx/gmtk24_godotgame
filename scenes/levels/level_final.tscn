@@ -20,9 +20,6 @@ bounce = 0.12
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_was5v"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3eenj"]
-size = Vector2(30, 743)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_it0ge"]
 size = Vector2(285.5, 17)
 
@@ -93,13 +90,7 @@ modulate = Color(1, 1, 1, 0)
 position = Vector2(825, -134)
 scenename = "EndGame"
 
-[node name="Waterfall Collision" type="Area2D" parent="."]
-position = Vector2(0, 1)
-script = ExtResource("11_7yyh4")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Waterfall Collision"]
-position = Vector2(1400, -405.5)
-shape = SubResource("RectangleShape2D_3eenj")
+[node name="Waterfall Collision" parent="." instance=ExtResource("5_dorm2")]
 
 [node name="Waterfall Collision2" type="Area2D" parent="."]
 position = Vector2(0, 1)
@@ -255,6 +246,5 @@ script = ExtResource("11_7yyh4")
 position = Vector2(1188, 427)
 shape = SubResource("RectangleShape2D_gfm5m")
 
-[connection signal="body_entered" from="Waterfall Collision" to="Waterfall Collision" method="_on_body_entered"]
 [connection signal="body_entered" from="Waterfall Collision2" to="Waterfall Collision2" method="_on_body_entered"]
 [connection signal="body_entered" from="Death bottom" to="Death bottom" method="_on_body_entered"]
