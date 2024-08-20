@@ -3,7 +3,7 @@ class_name SceneLogic
 
 const LEVELPATH = "res://scenes/levels/"
 
-@onready var m_Player : Player = get_node("Player")
+@onready var m_Player : Player = get_tree().get_first_node_in_group("Player")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

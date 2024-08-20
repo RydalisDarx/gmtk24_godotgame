@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dypwksy6j8lcp"]
+[gd_scene load_steps=3 format=3 uid="uid://b4qnw8uvh8pm3"]
 
 [ext_resource type="Script" path="res://scripts/settings_menu_controller.gd" id="1_y82yp"]
 [ext_resource type="FontFile" uid="uid://b5eibttpb7bp4" path="res://assets/font/at01.ttf" id="3_qfmv8"]
@@ -46,8 +46,7 @@ layout_mode = 2
 offset_top = 27.0
 offset_right = 118.0
 offset_bottom = 43.0
-min_value = -80.0
-max_value = 0.0
+step = 5.0
 
 [node name="BGM" type="Label" parent="Audio Options"]
 layout_mode = 2
@@ -61,8 +60,7 @@ layout_mode = 2
 offset_top = 27.0
 offset_right = 118.0
 offset_bottom = 43.0
-min_value = -80.0
-max_value = 0.0
+step = 5.0
 
 [node name="SFX" type="Label" parent="Audio Options"]
 layout_mode = 2
@@ -76,8 +74,7 @@ layout_mode = 2
 offset_top = 27.0
 offset_right = 118.0
 offset_bottom = 43.0
-min_value = -80.0
-max_value = 0.0
+step = 5.0
 
 [node name="confirm" type="Button" parent="."]
 layout_mode = 0
