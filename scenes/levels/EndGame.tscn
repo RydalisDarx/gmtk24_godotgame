@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://3awqjhl0fske"]
+
+[ext_resource type="Script" path="res://scripts/end_game.gd" id="1_cav2k"]
+[ext_resource type="Texture2D" uid="uid://bir8436t761mo" path="res://assets/ending_screen_v4.png" id="2_2d36k"]
+[ext_resource type="PackedScene" uid="uid://bnemj4k20asn" path="res://scenes/miscellaneous/music_player.tscn" id="3_rt2gw"]
+[ext_resource type="AudioStream" uid="uid://ctq3141x8fg1a" path="res://audio/music/title_music.wav" id="4_23nn8"]
+
+[node name="EndGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cav2k")
+
+[node name="EndingScreenV4" type="Sprite2D" parent="."]
+position = Vector2(240, 134)
+texture = ExtResource("2_2d36k")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 341.0
+offset_top = 218.0
+offset_right = 454.0
+offset_bottom = 249.0
+text = "Quit To Menu"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="MusicPlayer" parent="." instance=ExtResource("3_rt2gw")]
+stream = ExtResource("4_23nn8")
+autoplay = true
+bus = &"Master"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
