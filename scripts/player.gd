@@ -150,6 +150,7 @@ func _physics_process(delta):
 	
 	# Jump under various circumstances
 	if Input.is_action_just_pressed("jump"):
+		var play_sfx = true
 		
 		# Wall jump
 		if active_upgrades["wall_cling"] and (is_on_wall_only() or $RayCast2D.is_colliding()) and (not is_on_floor_only()) and (ready_powers["wall_jump"] or last_wj_dir != dir):
@@ -190,6 +191,11 @@ func _physics_process(delta):
 			velocity.y = jump_strength
 			animate("jump")
 			double_jump_particles.emitting = true
+		else:
+			play_sfx = false
+			
+		if play_sfx:
+			$SFXPlayers/Jump.play()
 	
 	# Cut off jump velocity when releasing the jump button
 	if Input.is_action_just_released("jump") and velocity.y < 0 and not disable_jump_cutoff:
@@ -197,6 +203,7 @@ func _physics_process(delta):
 			
 	# use dash
 	if Input.is_action_just_pressed("dash") and ready_powers["dash"]:
+		$SFXPlayers/Dash.play()
 		if velocity.x > 0:
 			velocity.x += dash_speed
 			dash_particles.emitting = true
