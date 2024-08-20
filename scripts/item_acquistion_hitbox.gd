@@ -8,16 +8,23 @@ extends Node2D
 @onready var sprite := $Sprite
 var active := true
 
+const PERM_PICKUPS_SHEET = preload("res://assets/perm_pickups_sheet.png")
+const TEMP_PICKUPS_SHEET = preload("res://assets/temp_pickups_sheet.png")
+
 @export var upgrade_sheet := {
-	"bonus_jump" = 0,
-	"dash" = 1,
+	"bonus_jump" = 2,
+	"wall_cling" = 1,
 	"double_jump" = 2,
-	"wall_cling" = 3,
+	"dash" = 3,
 }
 
 signal upgrade_collected(upgrade_name, permanent, duration)
 
 func _ready():
+	if permanent:
+		sprite.texture = PERM_PICKUPS_SHEET
+	else:
+		sprite.texture = TEMP_PICKUPS_SHEET
 	sprite.frame = upgrade_sheet[upgrade_name]
 	var player_nodes = get_tree().get_nodes_in_group("Player")
 	

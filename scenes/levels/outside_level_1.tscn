@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://p6e8xffftmnb"]
+[gd_scene load_steps=29 format=4 uid="uid://p6e8xffftmnb"]
 
 [ext_resource type="Texture2D" uid="uid://brkrc6rs36ouy" path="res://assets/stage_1_forest_v3.png" id="1_dx3g7"]
 [ext_resource type="Script" path="res://scripts/scene_logic.gd" id="1_q0qbh"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://c00dnb2j7nvmq" path="res://scenes/world_objects/level_portal.tscn" id="16_g5m2u"]
 [ext_resource type="PackedScene" uid="uid://bnemj4k20asn" path="res://scenes/miscellaneous/music_player.tscn" id="18_0fgsl"]
 [ext_resource type="AudioStream" uid="uid://dhd4fe3yv2w6l" path="res://audio/music/level_one.wav" id="19_rabgp"]
+[ext_resource type="Texture2D" uid="uid://lu0r315jkks0" path="res://assets/png-clipart-waving-bear-bear-brown-bear-1276212616.png" id="20_3h2dy"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xgeyw"]
 bounce = 0.12
@@ -26,8 +27,8 @@ bounce = 0.12
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qihng"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dq3fi"]
-radius = 199.0
-height = 596.0
+radius = 106.0
+height = 340.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gdp8c"]
 size = Vector2(287.213, 20)
@@ -174,7 +175,8 @@ script = ExtResource("6_r1c1o")
 [node name="Area2D" type="Area2D" parent="Background Objects/Tree5"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Background Objects/Tree5/Area2D"]
-position = Vector2(17, -1)
+position = Vector2(13, -24)
+rotation = -4.71315
 shape = SubResource("CapsuleShape2D_dq3fi")
 one_way_collision_margin = 0.0
 
@@ -334,6 +336,11 @@ scenename = "level_2"
 [node name="MusicPlayer" parent="." instance=ExtResource("18_0fgsl")]
 stream = ExtResource("19_rabgp")
 bus = &"BGM"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2035, -89)
+scale = Vector2(0.155, 0.155)
+texture = ExtResource("20_3h2dy")
 
 [connection signal="body_entered" from="Background Objects/Tree/Area2D" to="Background Objects/Tree" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Background Objects/Tree/Area2D" to="Background Objects/Tree" method="_on_area_2d_body_exited"]
