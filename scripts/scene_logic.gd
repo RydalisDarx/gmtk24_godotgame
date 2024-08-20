@@ -12,11 +12,11 @@ func _ready():
 	
 	print(self.name)
 	print(SceneManager.currentScene)
-	if SceneManager.currentScene != self.name:
+	if SceneManager.currentScene != get_tree().current_scene.scene_file_path:
 		if has_node("MusicPlayer"):
 			var mp = $MusicPlayer
 			SceneManager.playMusic(mp.stream, mp.volume_db)
-		SceneManager.currentScene = self.name
+		SceneManager.currentScene = get_tree().current_scene.scene_file_path
 
 # Load a scene from a scenename
 func _loadScene(scenename):
