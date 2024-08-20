@@ -278,7 +278,7 @@ position = Vector2(-421, -33)
 shape = SubResource("RectangleShape2D_vwoea")
 
 [node name="Player" parent="." instance=ExtResource("2_22jnc")]
-position = Vector2(1290, 28)
+position = Vector2(1225, -24)
 active_upgrades = {
 "bonus_jump": true,
 "dash": false,
