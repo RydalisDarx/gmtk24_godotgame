@@ -1034,8 +1034,8 @@ texture_disabled = ExtResource("6_ho20h")
 texture_focused = ExtResource("6_ho20h")
 
 [node name="MusicPlayer" parent="." instance=ExtResource("3_n8row")]
-stream = ExtResource("4_i2iw8")
 autoplay = true
+bus = &"Master"
 
 [node name="cloud_bg" type="TextureRect" parent="."]
 visible = false

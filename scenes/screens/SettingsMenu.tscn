@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dypwksy6j8lcp"]
 
-[ext_resource type="Script" path="res://scripts/settings_menu_controller.gd" id="1_cd13f"]
+[ext_resource type="FontFile" uid="uid://b5eibttpb7bp4" path="res://assets/font/at01.ttf" id="3_qfmv8"]
 
 [node name="SettingsMenu" type="Control"]
 layout_mode = 3
@@ -9,4 +9,78 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_cd13f")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 149.0
+offset_top = 23.0
+offset_right = 189.0
+offset_bottom = 63.0
+scale = Vector2(4.63258, 5.37559)
+color = Color(0.205117, 0.205117, 0.205117, 1)
+
+[node name="Audio Options" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 179.0
+offset_top = 46.0
+offset_right = 25.0
+offset_bottom = -47.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Master" type="Label" parent="Audio Options"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_qfmv8")
+theme_override_font_sizes/font_size = 32
+text = "Master Volume"
+
+[node name="HSlider" type="HSlider" parent="Audio Options/Master"]
+layout_mode = 2
+offset_top = 27.0
+offset_right = 118.0
+offset_bottom = 43.0
+value = 40.0
+
+[node name="BGM" type="Label" parent="Audio Options"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_qfmv8")
+theme_override_font_sizes/font_size = 32
+text = "BGM Volume"
+
+[node name="HSlider2" type="HSlider" parent="Audio Options/BGM"]
+layout_mode = 2
+offset_top = 27.0
+offset_right = 118.0
+offset_bottom = 43.0
+value = 40.0
+
+[node name="SFX" type="Label" parent="Audio Options"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_qfmv8")
+theme_override_font_sizes/font_size = 32
+text = "SFX Volume"
+
+[node name="HSlider3" type="HSlider" parent="Audio Options/SFX"]
+layout_mode = 2
+offset_top = 27.0
+offset_right = 118.0
+offset_bottom = 43.0
+value = 40.0
+
+[node name="confirm" type="Button" parent="."]
+layout_mode = 0
+offset_left = 156.0
+offset_top = 27.0
+offset_right = 174.0
+offset_bottom = 61.0
+scale = Vector2(0.632412, 0.662364)
+theme_override_fonts/font = ExtResource("3_qfmv8")
+theme_override_font_sizes/font_size = 32
+text = "<"
