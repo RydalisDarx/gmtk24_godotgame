@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://e8cg0d371vkq" path="res://scenes/world_objects/item_acquistion_hitbox.tscn" id="11_pnsku"]
 [ext_resource type="Texture2D" uid="uid://dthsccrptu7ik" path="res://assets/blacony_tiles.png" id="12_ydd0i"]
 [ext_resource type="FontFile" uid="uid://b5eibttpb7bp4" path="res://assets/font/at01.ttf" id="14_jh0n6"]
-[ext_resource type="PackedScene" uid="uid://b5dhwryicmp6o" path="res://scenes/world_objects/level_portal.tscn" id="16_g5m2u"]
+[ext_resource type="PackedScene" uid="uid://c00dnb2j7nvmq" path="res://scenes/world_objects/level_portal.tscn" id="16_g5m2u"]
 [ext_resource type="PackedScene" uid="uid://bnemj4k20asn" path="res://scenes/miscellaneous/music_player.tscn" id="18_0fgsl"]
 [ext_resource type="AudioStream" uid="uid://dhd4fe3yv2w6l" path="res://audio/music/level_one.wav" id="19_rabgp"]
 [ext_resource type="Texture2D" uid="uid://lu0r315jkks0" path="res://assets/png-clipart-waving-bear-bear-brown-bear-1276212616.png" id="20_3h2dy"]
@@ -335,6 +335,7 @@ scenename = "level_2"
 
 [node name="MusicPlayer" parent="." instance=ExtResource("18_0fgsl")]
 stream = ExtResource("19_rabgp")
+bus = &"BGM"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(2035, -89)

@@ -7,6 +7,11 @@ func playMusic(stream, volume):
 	TrueMusicPlayer.stream = stream
 	TrueMusicPlayer.volume_db = volume
 	TrueMusicPlayer.play()
+	
+func stopMusic():
+	TrueMusicPlayer.stop()
+	
+	
 
 func _getCurrentScene():
 	return currentScene
