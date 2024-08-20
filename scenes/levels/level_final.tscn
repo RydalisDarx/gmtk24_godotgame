@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=4 uid="uid://d2kt648iymgw"]
+[gd_scene load_steps=12 format=4 uid="uid://d2kt648iymgw"]
 
 [ext_resource type="Texture2D" uid="uid://brkrc6rs36ouy" path="res://assets/stage_1_forest_v3.png" id="1_ncea4"]
 [ext_resource type="TileSet" uid="uid://ba24m0uinmh66" path="res://assets/full_tileset.tres" id="2_7h000"]
 [ext_resource type="PackedScene" uid="uid://be61rh3wrgcts" path="res://scenes/world_objects/hazard.tscn" id="4_71sfa"]
+[ext_resource type="PackedScene" uid="uid://bnemj4k20asn" path="res://scenes/miscellaneous/music_player.tscn" id="7_4ghxo"]
+[ext_resource type="AudioStream" uid="uid://cndef6fyux43a" path="res://audio/music/final_level.wav" id="8_88bdm"]
 [ext_resource type="Texture2D" uid="uid://dthsccrptu7ik" path="res://assets/blacony_tiles.png" id="12_ym1jj"]
-[ext_resource type="PackedScene" path="res://scenes/world_objects/item_acquistion_hitbox.tscn" id="13_etqne"]
+[ext_resource type="PackedScene" uid="uid://e8cg0d371vkq" path="res://scenes/world_objects/item_acquistion_hitbox.tscn" id="13_etqne"]
 [ext_resource type="PackedScene" uid="uid://beiqcohu2gu4g" path="res://scenes/player.tscn" id="16_4qxpl"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pp4ef"]
@@ -157,3 +159,6 @@ active_upgrades = {
 "double_jump": true,
 "wall_cling": true
 }
+
+[node name="MusicPlayer" parent="." instance=ExtResource("7_4ghxo")]
+stream = ExtResource("8_88bdm")
