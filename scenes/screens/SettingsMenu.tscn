@@ -46,8 +46,8 @@ layout_mode = 2
 offset_top = 27.0
 offset_right = 118.0
 offset_bottom = 43.0
-min_value = -80.0
-max_value = 0.0
+step = 5.0
+value = 100.0
 
 [node name="BGM" type="Label" parent="Audio Options"]
 layout_mode = 2
@@ -61,8 +61,8 @@ layout_mode = 2
 offset_top = 27.0
 offset_right = 118.0
 offset_bottom = 43.0
-min_value = -80.0
-max_value = 0.0
+step = 5.0
+value = 100.0
 
 [node name="SFX" type="Label" parent="Audio Options"]
 layout_mode = 2
@@ -76,8 +76,8 @@ layout_mode = 2
 offset_top = 27.0
 offset_right = 118.0
 offset_bottom = 43.0
-min_value = -80.0
-max_value = 0.0
+step = 5.0
+value = 100.0
 
 [node name="confirm" type="Button" parent="."]
 layout_mode = 0
