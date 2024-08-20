@@ -1,6 +1,6 @@
 extends Node
 
-signal got_upgrade(upgrade_name: String)
+signal got_upgrade(upgrade_name: String, is_permanent: bool)
 signal lost_upgrade(upgrade_name: String)
 signal upgrade_loaded(upgrade_name: String)
 
