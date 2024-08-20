@@ -52,7 +52,7 @@ tile_set = ExtResource("3_lwaiv")
 
 [node name="LevelPortal" parent="." instance=ExtResource("4_v5j2e")]
 position = Vector2(10, 342)
-scenename = "level_2"
+scenename = "level_3"
 
 [node name="items" type="Node2D" parent="."]
 position = Vector2(801.651, 482.037)
@@ -62,35 +62,30 @@ scale = Vector2(0.237056, 0.237056)
 position = Vector2(-3111.72, 497.617)
 scale = Vector2(1, 1)
 upgrade_name = "double_jump"
-duration = 1.0
 reappear_time = 2
 
 [node name="DJ 2" parent="items" instance=ExtResource("5_utvod")]
 position = Vector2(-2133.04, 160.144)
 scale = Vector2(1, 1)
 upgrade_name = "double_jump"
-duration = 1.0
 reappear_time = 2
 
 [node name="DJ 3" parent="items" instance=ExtResource("5_utvod")]
 position = Vector2(-479.427, -8.59289)
 scale = Vector2(1, 1)
 upgrade_name = "double_jump"
-duration = 1.0
 reappear_time = 2
 
 [node name="DJ 4" parent="items" instance=ExtResource("5_utvod")]
 position = Vector2(-479.427, -346.066)
 scale = Vector2(1, 1)
 upgrade_name = "double_jump"
-duration = 1.0
 reappear_time = 2
 
 [node name="DJ 5" parent="items" instance=ExtResource("5_utvod")]
 position = Vector2(-1867.28, -1282.55)
 scale = Vector2(1, 1)
 upgrade_name = "double_jump"
-duration = 1.0
 reappear_time = 2
 
 [node name="DJ 6" parent="items" instance=ExtResource("5_utvod")]
@@ -98,7 +93,6 @@ position = Vector2(-479.427, -751.033)
 scale = Vector2(1, 1)
 upgrade_name = "wall_cling"
 permanent = true
-duration = 1.0
 reappear_time = 2
 
 [node name="Player" parent="." instance=ExtResource("6_c63u2")]
