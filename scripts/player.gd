@@ -110,6 +110,7 @@ func _physics_process(delta):
 	if is_dashing:
 		velocity.y = 0.0
 	elif active_upgrades["wall_cling"] and (is_on_wall() or $RayCast2D.is_colliding()) and velocity.y > 0:
+		
 		velocity.y = clampf(velocity.y, 0.25 * -terminal_velocity, 0.25 * terminal_velocity)
 		if wall_cling_max_duration > 0 and is_holding_grab():
 			velocity.y = 0.0
@@ -224,7 +225,7 @@ func _on_upgrade_collected(upgrade_name, permanent, duration):
 	if active_upgrades.has(upgrade_name):
 		var had_upgrade = active_upgrades[upgrade_name]
 		active_upgrades[upgrade_name] = true
-		GameController.got_upgrade.emit(upgrade_name)
+		GameController.got_upgrade.emit(upgrade_name, permanent)
 		if permanent:
 			$CanvasLayer/Hud._on_upgrade_collected(upgrade_name, true, duration)
 			m_Properties.set_upgrade(upgrade_name, true)

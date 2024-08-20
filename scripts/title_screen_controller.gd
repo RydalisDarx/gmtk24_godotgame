@@ -15,7 +15,7 @@ func _ready() -> void:
 		func():
 			animation_player.play('start_game')
 			await animation_player.animation_finished
-			get_tree().change_scene_to_file("res://scenes/levels/main.tscn")
+			get_tree().change_scene_to_file("res://scenes/levels/outside_level_1.tscn")
 	)
 
 	quit_button.button_down.connect(

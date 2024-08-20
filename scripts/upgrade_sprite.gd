@@ -22,10 +22,10 @@ func _ready() -> void:
 	)
 
 	GameController.got_upgrade.connect(
-		func(upgrade_name: String):
+		func(upgrade_name: String, is_permanent: bool):
 			if triggered_by_upgrades.has(upgrade_name):
 
-				if upgrade_name == "bonus_jump":
+				if not is_permanent:
 					modulate = Color("#00ff00")
 
 				visible = true
