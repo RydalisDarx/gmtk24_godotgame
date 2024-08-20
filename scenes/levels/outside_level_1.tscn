@@ -18,6 +18,7 @@
 [ext_resource type="FontFile" uid="uid://b5eibttpb7bp4" path="res://assets/font/at01.ttf" id="14_jh0n6"]
 [ext_resource type="PackedScene" path="res://scenes/world_objects/level_portal.tscn" id="16_g5m2u"]
 [ext_resource type="PackedScene" uid="uid://bnemj4k20asn" path="res://scenes/miscellaneous/music_player.tscn" id="18_0fgsl"]
+[ext_resource type="AudioStream" uid="uid://dhd4fe3yv2w6l" path="res://audio/music/level_one.wav" id="19_rabgp"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xgeyw"]
 bounce = 0.12
@@ -331,7 +332,7 @@ scale = Vector2(12.08, 11.96)
 scenename = "level_2"
 
 [node name="MusicPlayer" parent="." instance=ExtResource("18_0fgsl")]
-bus = &"Master"
+stream = ExtResource("19_rabgp")
 
 [connection signal="body_entered" from="Background Objects/Tree/Area2D" to="Background Objects/Tree" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Background Objects/Tree/Area2D" to="Background Objects/Tree" method="_on_area_2d_body_exited"]

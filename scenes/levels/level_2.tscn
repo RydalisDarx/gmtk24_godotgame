@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://cdkcl7te31mff"]
+[gd_scene load_steps=18 format=4 uid="uid://cdkcl7te31mff"]
 
 [ext_resource type="Script" path="res://scripts/scene_logic.gd" id="1_5gxb5"]
 [ext_resource type="Texture2D" uid="uid://cknhu0w0pvhx3" path="res://assets/stage_1_forest_v4.png" id="2_anjfb"]
@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://beiqcohu2gu4g" path="res://scenes/player.tscn" id="6_c63u2"]
 [ext_resource type="PackedScene" uid="uid://be61rh3wrgcts" path="res://scenes/world_objects/hazard.tscn" id="7_gw20c"]
 [ext_resource type="PackedScene" uid="uid://bnemj4k20asn" path="res://scenes/miscellaneous/music_player.tscn" id="8_m4rov"]
-[ext_resource type="AudioStream" uid="uid://odj4suwl8luf" path="res://audio/music/level_two.wav" id="9_slteq"]
+[ext_resource type="AudioStream" uid="uid://bcxod7wb3cro" path="res://audio/music/level_two.wav" id="14_ikgod"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1quo5"]
 bounce = 0.12
@@ -113,4 +113,4 @@ position = Vector2(180, 308)
 scale = Vector2(0.75, 0.75)
 
 [node name="MusicPlayer" parent="." instance=ExtResource("8_m4rov")]
-stream = ExtResource("9_slteq")
+stream = ExtResource("14_ikgod")

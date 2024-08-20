@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scripts/title_screen_controller.gd" id="1_e2i8m"]
 [ext_resource type="FontFile" uid="uid://b5eibttpb7bp4" path="res://assets/font/at01.ttf" id="2_egljd"]
 [ext_resource type="PackedScene" uid="uid://bnemj4k20asn" path="res://scenes/miscellaneous/music_player.tscn" id="3_n8row"]
+[ext_resource type="AudioStream" uid="uid://ctq3141x8fg1a" path="res://audio/music/title_music.wav" id="4_i2iw8"]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
