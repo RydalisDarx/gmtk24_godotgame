@@ -204,21 +204,21 @@ z_index = 5
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_knbur")
 theme_override_font_sizes/font_size = 32
-text = "Settings"
+text = "Quit Game to Settings"
 
 [node name="MenuButton" type="Button" parent="PanelContainer/VBoxContainer"]
 z_index = 5
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_knbur")
 theme_override_font_sizes/font_size = 32
-text = "Quit To Menu"
+text = "Quit Game To Menu"
 
 [node name="QuitButton" type="Button" parent="PanelContainer/VBoxContainer"]
 z_index = 5
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_knbur")
 theme_override_font_sizes/font_size = 32
-text = "Quit Game"
+text = "Quit Game Application"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
