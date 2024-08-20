@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://beiqcohu2gu4g"]
+[gd_scene load_steps=81 format=3 uid="uid://beiqcohu2gu4g"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_gtov4"]
 [ext_resource type="Texture2D" uid="uid://dp3elhbje8jhq" path="res://assets/player-Sheet.png" id="2_fkr47"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://b2qssi0hssefl" path="res://assets/wall_cling-sheet.png" id="6_knngc"]
 [ext_resource type="Texture2D" uid="uid://dmmcptwwp4l5l" path="res://assets/particle.png" id="8_oh8uh"]
 [ext_resource type="PackedScene" uid="uid://cvnfphpol3ncq" path="res://scenes/screens/HUD.tscn" id="8_psfpj"]
+[ext_resource type="AudioStream" uid="uid://dhblh3bf7jj8x" path="res://audio/sfx/jump.wav" id="10_octw6"]
+[ext_resource type="AudioStream" uid="uid://66nso6xaicwi" path="res://audio/sfx/dash.wav" id="11_a23se"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fgbcy"]
 size = Vector2(12, 30)
@@ -1222,6 +1224,8 @@ target_position = Vector2(8, 0)
 [node name="SFXPlayers" type="Node" parent="."]
 
 [node name="Jump" type="AudioStreamPlayer2D" parent="SFXPlayers"]
+stream = ExtResource("10_octw6")
 volume_db = -3.467
 
 [node name="Dash" type="AudioStreamPlayer2D" parent="SFXPlayers"]
+stream = ExtResource("11_a23se")
