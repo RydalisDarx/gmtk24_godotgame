@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://beiqcohu2gu4g" path="res://scenes/player.tscn" id="6_c63u2"]
 [ext_resource type="PackedScene" uid="uid://be61rh3wrgcts" path="res://scenes/world_objects/hazard.tscn" id="7_gw20c"]
 [ext_resource type="PackedScene" uid="uid://bnemj4k20asn" path="res://scenes/miscellaneous/music_player.tscn" id="8_m4rov"]
-[ext_resource type="AudioStream" uid="uid://odj4suwl8luf" path="res://audio/music/level_two.wav" id="9_slteq"]
+[ext_resource type="AudioStream" uid="uid://bcxod7wb3cro" path="res://audio/music/level_two.wav" id="9_slteq"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1quo5"]
 bounce = 0.12
