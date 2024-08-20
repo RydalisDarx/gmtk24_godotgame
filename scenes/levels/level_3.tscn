@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://nlpiwxh7hpjt"]
+[gd_scene load_steps=20 format=4 uid="uid://nlpiwxh7hpjt"]
 
 [ext_resource type="Script" path="res://scripts/scene_logic.gd" id="1_ndmry"]
 [ext_resource type="PackedScene" uid="uid://beiqcohu2gu4g" path="res://scenes/player.tscn" id="2_22jnc"]
@@ -26,7 +26,10 @@ size = Vector2(298, 8)
 size = Vector2(5, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_07lyx"]
-size = Vector2(2907, 107)
+size = Vector2(1510.75, 65.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fv8i1"]
+size = Vector2(2724.38, 153)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_ndmry")
@@ -249,7 +252,7 @@ position = Vector2(-421, -33)
 shape = SubResource("RectangleShape2D_vwoea")
 
 [node name="Player" parent="." instance=ExtResource("2_22jnc")]
-position = Vector2(1221, -22)
+position = Vector2(1273, -22)
 
 [node name="PowerUps" type="Node2D" parent="."]
 position = Vector2(1154, -189)
@@ -343,8 +346,16 @@ position = Vector2(0, 1)
 script = ExtResource("7_o2omw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Death bottom"]
-position = Vector2(695.5, 441)
+position = Vector2(1089, 108.125)
 shape = SubResource("RectangleShape2D_07lyx")
+
+[node name="Death bottom2" type="Area2D" parent="."]
+position = Vector2(276, 281)
+script = ExtResource("7_o2omw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Death bottom2"]
+position = Vector2(312.812, 198)
+shape = SubResource("RectangleShape2D_fv8i1")
 
 [node name="MusicPlayer" parent="." instance=ExtResource("12_hnsqv")]
 stream = ExtResource("13_cpng2")
@@ -352,3 +363,4 @@ stream = ExtResource("13_cpng2")
 [connection signal="body_entered" from="Vines 1" to="Vines 1" method="_on_body_entered"]
 [connection signal="body_entered" from="Vines 2" to="Vines 2" method="_on_body_entered"]
 [connection signal="body_entered" from="Death bottom" to="Death bottom" method="_on_body_entered"]
+[connection signal="body_entered" from="Death bottom2" to="Death bottom2" method="_on_body_entered"]
