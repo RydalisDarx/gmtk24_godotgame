@@ -285,4 +285,6 @@ script = ExtResource("7_o2omw")
 position = Vector2(695.5, 441)
 shape = SubResource("RectangleShape2D_07lyx")
 
+[node name="Node" type="Node" parent="."]
+
 [connection signal="body_entered" from="Death bottom" to="Death bottom" method="_on_body_entered"]
