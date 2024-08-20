@@ -1212,3 +1212,7 @@ process_material = SubResource("ParticleProcessMaterial_u7kd1")
 texture = ExtResource("8_oh8uh")
 lifetime = 0.25
 one_shot = true
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, -15)
+target_position = Vector2(8, 0)

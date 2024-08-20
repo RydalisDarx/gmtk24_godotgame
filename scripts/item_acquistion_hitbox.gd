@@ -1,7 +1,7 @@
 class_name UpgradeHitbox
 extends Node2D
 
-@export_enum("bonus_jump", "dash", "double_jump") var upgrade_name := ""
+@export_enum("bonus_jump", "dash", "double_jump", "wall_cling") var upgrade_name := ""
 @export var permanent := false
 @export var duration := 1.0
 @export var reappear_time := 0 #time for the time to reappear. If 0, doesn't
@@ -12,6 +12,7 @@ var active := true
 	"bonus_jump" = 0,
 	"dash" = 1,
 	"double_jump" = 2,
+	"wall_cling" = 3,
 }
 
 signal upgrade_collected(upgrade_name, permanent, duration)
