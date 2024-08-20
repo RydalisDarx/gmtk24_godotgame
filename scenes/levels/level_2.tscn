@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dthsccrptu7ik" path="res://assets/blacony_tiles.png" id="7_iweju"]
 [ext_resource type="TileSet" uid="uid://ba24m0uinmh66" path="res://assets/full_tileset.tres" id="8_jpg86"]
 [ext_resource type="PackedScene" uid="uid://bnemj4k20asn" path="res://scenes/miscellaneous/music_player.tscn" id="8_m4rov"]
-[ext_resource type="AudioStream" uid="uid://dhd4fe3yv2w6l" path="res://audio/music/level_one.wav" id="14_0bmkn"]
+[ext_resource type="AudioStream" uid="uid://dhd4fe3yv2w6l" path="res://audio/music/level_two.wav" id="14_0bmkn"]
 [ext_resource type="Script" path="res://scripts/hazard.gd" id="14_4loid"]
 [ext_resource type="Texture2D" uid="uid://1spg1p870bkr" path="res://assets/mr_president.png" id="15_wxnhk"]
 
