@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://p6e8xffftmnb"]
+[gd_scene load_steps=28 format=4 uid="uid://p6e8xffftmnb"]
 
 [ext_resource type="Texture2D" uid="uid://brkrc6rs36ouy" path="res://assets/stage_1_forest_v3.png" id="1_dx3g7"]
 [ext_resource type="Script" path="res://scripts/scene_logic.gd" id="1_q0qbh"]
@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://e8cg0d371vkq" path="res://scenes/world_objects/item_acquistion_hitbox.tscn" id="11_pnsku"]
 [ext_resource type="Texture2D" uid="uid://dthsccrptu7ik" path="res://assets/blacony_tiles.png" id="12_ydd0i"]
 [ext_resource type="FontFile" uid="uid://b5eibttpb7bp4" path="res://assets/font/at01.ttf" id="14_jh0n6"]
-[ext_resource type="PackedScene" path="res://scenes/world_objects/level_portal.tscn" id="16_g5m2u"]
+[ext_resource type="PackedScene" uid="uid://b5dhwryicmp6o" path="res://scenes/world_objects/level_portal.tscn" id="16_g5m2u"]
 [ext_resource type="PackedScene" uid="uid://bnemj4k20asn" path="res://scenes/miscellaneous/music_player.tscn" id="18_0fgsl"]
 [ext_resource type="AudioStream" uid="uid://dhd4fe3yv2w6l" path="res://audio/music/level_one.wav" id="19_rabgp"]
 

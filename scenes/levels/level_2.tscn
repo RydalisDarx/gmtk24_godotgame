@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://cdkcl7te31mff"]
+[gd_scene load_steps=12 format=4 uid="uid://cdkcl7te31mff"]
 
 [ext_resource type="Script" path="res://scripts/scene_logic.gd" id="1_5gxb5"]
 [ext_resource type="Texture2D" uid="uid://cknhu0w0pvhx3" path="res://assets/stage_1_forest_v4.png" id="2_anjfb"]

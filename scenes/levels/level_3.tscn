@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cf74236kpuvbg" path="res://scenes/hazard.tscn" id="7_x6h14"]
 [ext_resource type="Texture2D" uid="uid://brkrc6rs36ouy" path="res://assets/stage_1_forest_v3.png" id="10_e56wt"]
 [ext_resource type="PackedScene" uid="uid://bnemj4k20asn" path="res://scenes/miscellaneous/music_player.tscn" id="12_hnsqv"]
-[ext_resource type="AudioStream" uid="uid://77v21v0jqbkm" path="res://audio/music/level_three.wav" id="13_cpng2"]
+[ext_resource type="AudioStream" uid="uid://cycjcj2uiuqch" path="res://audio/music/level_three.wav" id="13_cpng2"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_re8h5"]
 bounce = 0.12
