@@ -3,7 +3,7 @@ extends Node2D
 
 @export_enum("bonus_jump", "dash", "double_jump", "wall_cling") var upgrade_name := ""
 @export var permanent := false
-@export var duration := 10.0
+@export var duration := 1.0
 @export var reappear_time := 0 #time for the time to reappear. If 0, doesn't
 @onready var sprite := $Sprite
 var active := true
