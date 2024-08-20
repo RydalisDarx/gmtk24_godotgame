@@ -36,6 +36,7 @@ func _process(_delta: float) -> void:
 
 
 func _on_settings_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/screens/SettingsMenu.tscn")
 	pass # Replace with function body.
 
 
