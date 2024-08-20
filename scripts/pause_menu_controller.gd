@@ -51,6 +51,7 @@ func _on_resume_button_pressed() -> void:
 
 
 func _on_menu_button_pressed() -> void:
+	SceneManager.stopMusic()
 	resume()
 	get_tree().change_scene_to_file("res://scenes/screens/TitleScreen.tscn")
 	pass # Replace with function body.
@@ -59,8 +60,4 @@ func _on_menu_button_pressed() -> void:
 func _on_quit_button_pressed() -> void:
 	resume()
 	get_tree().quit()
-	pass # Replace with function body.
-
-
-func _on_resume_button_draw() -> void:
 	pass # Replace with function body.

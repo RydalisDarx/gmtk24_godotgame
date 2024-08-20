@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://be61rh3wrgcts"]
+[gd_scene load_steps=4 format=3 uid="uid://cf74236kpuvbg"]
 
 [ext_resource type="Script" path="res://scripts/hazard.gd" id="1_ojp8f"]
 [ext_resource type="Texture2D" uid="uid://csup6piuvndma" path="res://assets/placeholder_hazard.png" id="2_k2uco"]
@@ -7,6 +7,7 @@
 size = Vector2(26, 26)
 
 [node name="Hazard" type="Area2D" groups=["Hazards"]]
+position = Vector2(360, 600)
 script = ExtResource("1_ojp8f")
 metadata/_edit_group_ = true
 

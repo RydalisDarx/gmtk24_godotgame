@@ -3,9 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://beiqcohu2gu4g" path="res://scenes/player.tscn" id="1_2f0ok"]
 [ext_resource type="Script" path="res://scripts/scene_logic.gd" id="1_ld57w"]
 [ext_resource type="TileSet" uid="uid://dr1hxby50o3vs" path="res://assets/forest_tilset.tres" id="2_xqa6n"]
-[ext_resource type="PackedScene" path="res://scenes/world_objects/level_portal.tscn" id="3_ucxot"]
+[ext_resource type="PackedScene" uid="uid://c00dnb2j7nvmq" path="res://scenes/world_objects/level_portal.tscn" id="3_ucxot"]
 [ext_resource type="PackedScene" uid="uid://e8cg0d371vkq" path="res://scenes/world_objects/item_acquistion_hitbox.tscn" id="5_put4a"]
-[ext_resource type="PackedScene" uid="uid://be61rh3wrgcts" path="res://scenes/world_objects/hazard.tscn" id="6_5mflq"]
+[ext_resource type="PackedScene" uid="uid://cf74236kpuvbg" path="res://scenes/world_objects/hazard.tscn" id="6_5mflq"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1quo5"]
 bounce = 0.12
