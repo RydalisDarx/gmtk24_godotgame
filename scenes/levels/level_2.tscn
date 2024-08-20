@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://cdkcl7te31mff"]
+[gd_scene load_steps=17 format=4 uid="uid://cdkcl7te31mff"]
 
 [ext_resource type="Script" path="res://scripts/scene_logic.gd" id="1_5gxb5"]
 [ext_resource type="Texture2D" uid="uid://cknhu0w0pvhx3" path="res://assets/stage_1_forest_v4.png" id="2_anjfb"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://be61rh3wrgcts" path="res://scenes/world_objects/hazard.tscn" id="7_gw20c"]
 [ext_resource type="Texture2D" uid="uid://dthsccrptu7ik" path="res://assets/blacony_tiles.png" id="7_iweju"]
 [ext_resource type="TileSet" uid="uid://ba24m0uinmh66" path="res://assets/full_tileset.tres" id="8_jpg86"]
+[ext_resource type="PackedScene" uid="uid://bnemj4k20asn" path="res://scenes/miscellaneous/music_player.tscn" id="8_m4rov"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1quo5"]
 bounce = 0.12
@@ -180,3 +181,5 @@ position = Vector2(20, 604)
 z_index = 1
 position = Vector2(10, 342)
 scenename = "level_3"
+
+[node name="MusicPlayer" parent="." instance=ExtResource("8_m4rov")]

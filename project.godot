@@ -19,6 +19,8 @@ config/icon="res://icon.svg"
 
 GameController="*res://scripts/game_controller.gd"
 GPlayerProperties="*res://scripts/player_properties.gd"
+SceneManager="*res://scripts/scene_manager.gd"
+TrueMusicPlayer="*res://scenes/miscellaneous/music_player.tscn"
 
 [display]
 

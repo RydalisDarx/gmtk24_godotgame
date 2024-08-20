@@ -9,9 +9,22 @@ const LEVELPATH = "res://scenes/levels/"
 func _ready():
 	m_Player.SetProperties(GPlayerProperties)
 	m_Player.m_Properties.Print()
+	
+	print(self.name)
+	print(SceneManager.currentScene)
+	if SceneManager.currentScene != self.name:
+		if has_node("MusicPlayer"):
+			var mp = $MusicPlayer
+			SceneManager.playMusic(mp.stream, mp.volume_db)
+		SceneManager.currentScene = self.name
 
 # Load a scene from a scenename
 func _loadScene(scenename):
 	var playerProperties =  m_Player.GetProperties()
 	GPlayerProperties.set_upgrades(playerProperties.permanent_upgrades)
 	get_tree().change_scene_to_file.call_deferred(LEVELPATH + scenename)
+
+func _reload():
+	print("reloading")	
+	get_tree().reload_current_scene()
+	
