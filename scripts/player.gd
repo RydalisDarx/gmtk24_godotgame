@@ -226,8 +226,10 @@ func _on_upgrade_collected(upgrade_name, permanent, duration):
 		active_upgrades[upgrade_name] = true
 		GameController.got_upgrade.emit(upgrade_name)
 		if permanent:
+			$CanvasLayer/Hud._on_upgrade_collected(upgrade_name, true, duration)
 			m_Properties.set_upgrade(upgrade_name, true)
 		if not permanent and had_upgrade == false:
+			$CanvasLayer/Hud._on_upgrade_collected(upgrade_name, false, duration)
 			print("will last " + str(duration) + " seconds")
 			await get_tree().create_timer(duration).timeout
 			active_upgrades[upgrade_name] = false

@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqyo7345b5kj2"]
+[gd_scene load_steps=4 format=3 uid="uid://bqyo7345b5kj2"]
 
 [ext_resource type="Script" path="res://scripts/title_screen_controller.gd" id="1_e2i8m"]
 [ext_resource type="FontFile" uid="uid://b5eibttpb7bp4" path="res://assets/font/at01.ttf" id="2_egljd"]
 [ext_resource type="PackedScene" uid="uid://bnemj4k20asn" path="res://scenes/miscellaneous/music_player.tscn" id="3_n8row"]
-[ext_resource type="AudioStream" uid="uid://c7p24rioy2mmr" path="res://audio/music/title_music.wav" id="4_i2iw8"]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -14,37 +13,34 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e2i8m")
 
-[node name="StartButton" type="Button" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -58.0
-offset_top = -8.0
-offset_right = 147.0
-offset_bottom = 74.0
+offset_left = -82.0
+offset_top = -25.0
+offset_right = 82.0
+offset_bottom = 121.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.494694, 0.494694)
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
 theme_override_fonts/font = ExtResource("2_egljd")
 theme_override_font_sizes/font_size = 48
 text = "Start Game"
 
-[node name="QuitButton" type="Button" parent="StartButton"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -102.5
-offset_top = 41.8795
-offset_right = 102.5
-offset_bottom = 123.88
-grow_horizontal = 2
-grow_vertical = 2
+[node name="SettingsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_egljd")
+theme_override_font_sizes/font_size = 48
+text = "Settings"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
 theme_override_fonts/font = ExtResource("2_egljd")
 theme_override_font_sizes/font_size = 48
 text = "Quit Game"
@@ -68,8 +64,9 @@ text = "Project: Playroom"
 metadata/_edit_use_anchors_ = true
 
 [node name="MusicPlayer" parent="." instance=ExtResource("3_n8row")]
-stream = ExtResource("4_i2iw8")
 autoplay = true
+bus = &"Master"
 
-[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="StartButton/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
