@@ -1,0 +1,120 @@
+[gd_scene load_steps=9 format=3 uid="uid://d3evj1hq1d6vb"]
+
+[ext_resource type="Script" path="res://scripts/credits.gd" id="1_hwxj0"]
+[ext_resource type="FontFile" uid="uid://b5eibttpb7bp4" path="res://assets/font/at01.ttf" id="2_4yxm2"]
+[ext_resource type="Texture2D" uid="uid://l81csjvquobq" path="res://assets/titlescreen_bg.png" id="3_0pjl8"]
+[ext_resource type="PackedScene" uid="uid://bnemj4k20asn" path="res://scenes/miscellaneous/music_player.tscn" id="4_ikt2f"]
+[ext_resource type="AudioStream" uid="uid://bbw85biobs7pn" path="res://audio/music/Death music.wav" id="5_33eyq"]
+
+[sub_resource type="Animation" id="Animation_12tlv"]
+resource_name = "scroll"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(115, 270), Vector2(115, -480)]
+}
+
+[sub_resource type="Animation" id="Animation_rg761"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(115, 270)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_htm5d"]
+_data = {
+"RESET": SubResource("Animation_rg761"),
+"scroll": SubResource("Animation_12tlv")
+}
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hwxj0")
+
+[node name="TitlescreenBg" type="Sprite2D" parent="."]
+modulate = Color(0.489622, 0.489622, 0.489622, 1)
+position = Vector2(240, 135)
+texture = ExtResource("3_0pjl8")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 270.0
+offset_right = 372.0
+offset_bottom = 747.0
+theme_override_fonts/font = ExtResource("2_4yxm2")
+theme_override_font_sizes/font_size = 16
+text = "Booting Back Up (GMTK 2024)
+
+--- Team Lead ---
+Ali Hassan
+
+--- Game Programmers ---
+Ali Hassan
+Liam Ihasz
+Noah Klowden 
+Celeste Nunes
+Sigourney 
+
+--- Artists ---
+Liam Ihasz
+Martin Tran
+
+--- Composer and Sound Designer ---
+Vanessa Merlis 
+
+--- Level Designers ---
+Ali Hassan
+Noah Klowden 
+Sigourney
+
+--- UX Designers ---
+Ali Hassan
+Liam Ihasz
+
+Thank everyone for making this game a reality!
+And thank you for playing!"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 64.0
+offset_bottom = 24.0
+theme_override_fonts/font = ExtResource("2_4yxm2")
+theme_override_font_sizes/font_size = 16
+text = "Title Screen"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_htm5d")
+}
+
+[node name="MusicPlayer" parent="." instance=ExtResource("4_ikt2f")]
+stream = ExtResource("5_33eyq")
+autoplay = true
+bus = &"Master"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

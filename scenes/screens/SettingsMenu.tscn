@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dypwksy6j8lcp"]
+[gd_scene load_steps=3 format=3 uid="uid://dypwksy6j8lcp"]
 
+[ext_resource type="Script" path="res://scripts/settings_menu_controller.gd" id="1_y82yp"]
 [ext_resource type="FontFile" uid="uid://b5eibttpb7bp4" path="res://assets/font/at01.ttf" id="3_qfmv8"]
 
 [node name="SettingsMenu" type="Control"]
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_y82yp")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
@@ -76,11 +78,11 @@ value = 40.0
 
 [node name="confirm" type="Button" parent="."]
 layout_mode = 0
-offset_left = 156.0
-offset_top = 27.0
-offset_right = 174.0
-offset_bottom = 61.0
+offset_left = 9.0
+offset_top = 4.0
+offset_right = 123.0
+offset_bottom = 38.0
 scale = Vector2(0.632412, 0.662364)
 theme_override_fonts/font = ExtResource("3_qfmv8")
 theme_override_font_sizes/font_size = 32
-text = "<"
+text = "Title Screen"
