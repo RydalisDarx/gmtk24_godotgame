@@ -335,7 +335,7 @@ scenename = "level_2"
 
 [node name="MusicPlayer" parent="." instance=ExtResource("18_0fgsl")]
 stream = ExtResource("19_rabgp")
-bus = &"BGM"
+bus = &"Master"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(2035, -89)
