@@ -11,7 +11,7 @@
 [ext_resource type="Script" path="res://scripts/hazard.gd" id="7_o2omw"]
 [ext_resource type="Texture2D" uid="uid://brkrc6rs36ouy" path="res://assets/stage_1_forest_v3.png" id="10_e56wt"]
 [ext_resource type="PackedScene" uid="uid://bnemj4k20asn" path="res://scenes/miscellaneous/music_player.tscn" id="12_hnsqv"]
-[ext_resource type="AudioStream" uid="uid://cycjcj2uiuqch" path="res://audio/music/level_three.wav" id="13_cpng2"]
+[ext_resource type="AudioStream" uid="uid://cndef6fyux43a" path="res://audio/music/final_level.wav" id="13_cpng2"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_re8h5"]
 bounce = 0.12
@@ -208,79 +208,66 @@ scale = Vector2(0.486884, 0.486884)
 
 [node name="Dash 1" parent="PowerUps" instance=ExtResource("7_lsmt0")]
 position = Vector2(36.9698, 16.431)
-scale = Vector2(1, 1)
 upgrade_name = "dash"
 reappear_time = 2
 
 [node name="Dash 2" parent="PowerUps" instance=ExtResource("7_lsmt0")]
 position = Vector2(-979.7, 347.105)
-scale = Vector2(1, 1)
 upgrade_name = "dash"
 reappear_time = 2
 
 [node name="Dash 3" parent="PowerUps" instance=ExtResource("7_lsmt0")]
 position = Vector2(-575.086, -386.129)
-scale = Vector2(1, 1)
 upgrade_name = "dash"
 reappear_time = 2
 
 [node name="Dash 4" parent="PowerUps" instance=ExtResource("7_lsmt0")]
 position = Vector2(-971.484, -112.963)
-scale = Vector2(1, 1)
 upgrade_name = "dash"
 reappear_time = 2
 
 [node name="Dash 5" parent="PowerUps" instance=ExtResource("7_lsmt0")]
 position = Vector2(-1470.58, -338.89)
-scale = Vector2(1, 1)
 upgrade_name = "dash"
 reappear_time = 2
 
 [node name="Dash 6" parent="PowerUps" instance=ExtResource("7_lsmt0")]
 position = Vector2(-439.53, -653.133)
-scale = Vector2(1, 1)
 upgrade_name = "dash"
 reappear_time = 2
 
 [node name="Dash 7" parent="PowerUps" instance=ExtResource("7_lsmt0")]
 position = Vector2(-1267.24, -653.133)
-scale = Vector2(1, 1)
 upgrade_name = "dash"
 reappear_time = 2
 
 [node name="Dash 8" parent="PowerUps" instance=ExtResource("7_lsmt0")]
 position = Vector2(-2557.08, -394.344)
-scale = Vector2(1, 1)
 upgrade_name = "dash"
 reappear_time = 2
 
 [node name="Temp Jump" parent="PowerUps" instance=ExtResource("7_lsmt0")]
 position = Vector2(-1538.35, -80.1012)
-scale = Vector2(1, 1)
 upgrade_name = "bonus_jump"
 reappear_time = 2
 
 [node name="Temp Jump2" parent="PowerUps" instance=ExtResource("7_lsmt0")]
 position = Vector2(-1026.94, -355.321)
-scale = Vector2(1, 1)
 upgrade_name = "bonus_jump"
 reappear_time = 2
 
 [node name="DashXX" parent="PowerUps" instance=ExtResource("7_lsmt0")]
 position = Vector2(-2824.08, 632.594)
-scale = Vector2(1, 1)
 upgrade_name = "dash"
 reappear_time = 2
 
 [node name="Temp JumpXX" parent="PowerUps" instance=ExtResource("7_lsmt0")]
 position = Vector2(-3109.57, 562.762)
-scale = Vector2(1, 1)
 upgrade_name = "bonus_jump"
 reappear_time = 2
 
 [node name="Double Jump" parent="PowerUps" instance=ExtResource("7_lsmt0")]
 position = Vector2(-2253.1, 926.299)
-scale = Vector2(1, 1)
 upgrade_name = "double_jump"
 permanent = true
 reappear_time = 2

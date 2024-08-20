@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://bk8qiyqnuusf4"]
+[gd_scene load_steps=17 format=4 uid="uid://gqk8luoiifhj"]
 
 [ext_resource type="Script" path="res://scripts/scene_logic.gd" id="1_8nhef"]
 [ext_resource type="Texture2D" uid="uid://brkrc6rs36ouy" path="res://assets/stage_1_forest_v3.png" id="2_tn133"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://b5dhwryicmp6o" path="res://scenes/world_objects/level_portal.tscn" id="9_nkm0x"]
 [ext_resource type="Script" path="res://scripts/hazard.gd" id="10_u1yf6"]
 [ext_resource type="PackedScene" uid="uid://bnemj4k20asn" path="res://scenes/miscellaneous/music_player.tscn" id="11_vh818"]
-[ext_resource type="AudioStream" uid="uid://bmnyf5ppebxog" path="res://audio/music/level_five.wav" id="12_kjvy0"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_re8h5"]
 bounce = 0.12
@@ -226,6 +225,5 @@ position = Vector2(696, 494)
 shape = SubResource("RectangleShape2D_07lyx")
 
 [node name="MusicPlayer" parent="." instance=ExtResource("11_vh818")]
-stream = ExtResource("12_kjvy0")
 
 [connection signal="body_entered" from="Death bottom" to="Death bottom" method="_on_body_entered"]
