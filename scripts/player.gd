@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Player
 
+signal reloading
+
 @export var speed := 200.0
 @export var jump_strength := -300.0
 @export var gravity := 675.0
@@ -19,7 +21,7 @@ var m_Properties : PlayerProperties = null
 	"bonus_jump" = false,
 	"double_jump" = false,
 	"dash" = false,
-	"wall_cling" = true
+	"wall_cling" = false
 }
 
 @export_range(2.0, 5.0) var overtime_gravity_increment := 30.0
@@ -60,13 +62,14 @@ func SetProperties(properties: PlayerProperties) -> void:
 	m_Properties = PlayerProperties.new(perm_upgrades)
 	
 	for upgrade in perm_upgrades.keys():
-		active_upgrades[upgrade] = perm_upgrades[upgrade]
+		active_upgrades[upgrade] = perm_upgrades[upgrade] or active_upgrades[upgrade]
 
 		if active_upgrades[upgrade]:
 			GameController.upgrade_loaded.emit(upgrade)
 
 func _ready():
 	original_particle_pos = %wall_cling_particles.position.x
+	reloading.connect(get_tree().current_scene._reload)
 
 func _physics_process(delta):
 	if dir != 0:
@@ -90,6 +93,7 @@ func _physics_process(delta):
 	if dir != 0:
 		update_animation_blend(dir)
 		velocity.x = lerp(velocity.x, dir * speed, acceleration)
+		$RayCast2D.target_position.x = 8 * dir
 
 		if current_animation == 'fall' and is_on_floor():
 			animate("land_run")
@@ -105,11 +109,11 @@ func _physics_process(delta):
 	velocity.y += (gravity + overtime_gravity) * delta
 	if is_dashing:
 		velocity.y = 0.0
-	elif active_upgrades["wall_cling"] and is_on_wall() and velocity.y > 0:
+	elif active_upgrades["wall_cling"] and (is_on_wall() or $RayCast2D.is_colliding()) and velocity.y > 0:
 		velocity.y = clampf(velocity.y, 0.25 * -terminal_velocity, 0.25 * terminal_velocity)
 		if wall_cling_max_duration > 0 and is_holding_grab():
 			velocity.y = 0.0
-		else:
+		elif not is_on_floor():
 			%wall_cling_particles.emitting=true
 	else:
 		velocity.y = clampf(velocity.y, -terminal_velocity, terminal_velocity)
@@ -130,7 +134,7 @@ func _physics_process(delta):
 			ready_powers["dash"] = true
 		dash_timer = 0
 		
-	if is_on_wall():
+	if active_upgrades["wall_cling"] and (is_on_wall() or $RayCast2D.is_colliding()):
 		wj_slide_timer -= delta
 		if not is_on_floor():
 			animate("wall_cling")
@@ -146,11 +150,16 @@ func _physics_process(delta):
 	
 	# Jump under various circumstances
 	if Input.is_action_just_pressed("jump"):
+		var play_sfx = true
 		
 		# Wall jump
-		if is_on_wall_only() and (ready_powers["wall_jump"] or last_wj_dir != dir):
+		if active_upgrades["wall_cling"] and (is_on_wall_only() or $RayCast2D.is_colliding()) and (not is_on_floor_only()) and (ready_powers["wall_jump"] or last_wj_dir != dir):
 			#print(get_wall_normal())
-			var wj_dir := get_wall_normal().x * -1
+			var wj_dir
+			if is_on_wall():
+				wj_dir = get_wall_normal().x * -1
+			else:
+				wj_dir = $RayCast2D.target_position.x / 8
 			#print(wj_dir == dir)
 			if wj_dir != dir:
 				dir = wj_dir
@@ -182,6 +191,11 @@ func _physics_process(delta):
 			velocity.y = jump_strength
 			animate("jump")
 			double_jump_particles.emitting = true
+		else:
+			play_sfx = false
+			
+		if play_sfx:
+			$SFXPlayers/Jump.play()
 	
 	# Cut off jump velocity when releasing the jump button
 	if Input.is_action_just_released("jump") and velocity.y < 0 and not disable_jump_cutoff:
@@ -189,6 +203,7 @@ func _physics_process(delta):
 			
 	# use dash
 	if Input.is_action_just_pressed("dash") and ready_powers["dash"]:
+		$SFXPlayers/Dash.play()
 		if velocity.x > 0:
 			velocity.x += dash_speed
 			dash_particles.emitting = true
@@ -224,7 +239,7 @@ func _on_hazard_collision():
 	call_deferred("reload")
 	
 func reload():
-	get_tree().reload_current_scene()
+	reloading.emit()
 
 func is_holding_grab() -> bool:
 	return Input.is_action_pressed("wall_cling")
