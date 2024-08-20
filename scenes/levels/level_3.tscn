@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://nlpiwxh7hpjt"]
+[gd_scene load_steps=23 format=4 uid="uid://nlpiwxh7hpjt"]
 
 [ext_resource type="Script" path="res://scripts/scene_logic.gd" id="1_ndmry"]
 [ext_resource type="PackedScene" uid="uid://beiqcohu2gu4g" path="res://scenes/player.tscn" id="2_22jnc"]
@@ -13,7 +13,8 @@
 [ext_resource type="Script" path="res://scripts/hazard.gd" id="7_o2omw"]
 [ext_resource type="Texture2D" uid="uid://brkrc6rs36ouy" path="res://assets/stage_1_forest_v3.png" id="10_e56wt"]
 [ext_resource type="PackedScene" uid="uid://bnemj4k20asn" path="res://scenes/miscellaneous/music_player.tscn" id="12_hnsqv"]
-[ext_resource type="AudioStream" uid="uid://cndef6fyux43a" path="res://audio/music/final_level.wav" id="13_cpng2"]
+[ext_resource type="AudioStream" uid="uid://cycjcj2uiuqch" path="res://audio/music/level_three.wav" id="14_xjrmh"]
+[ext_resource type="FontFile" uid="uid://b5eibttpb7bp4" path="res://assets/font/at01.ttf" id="15_h7dyi"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_re8h5"]
 bounce = 0.12
@@ -378,7 +379,19 @@ position = Vector2(312.812, 198)
 shape = SubResource("RectangleShape2D_fv8i1")
 
 [node name="MusicPlayer" parent="." instance=ExtResource("12_hnsqv")]
-stream = ExtResource("13_cpng2")
+stream = ExtResource("14_xjrmh")
+bus = &"Master"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 1184.0
+offset_top = -229.0
+offset_right = 1336.0
+offset_bottom = -206.0
+theme_override_fonts/font = ExtResource("15_h7dyi")
+theme_override_font_sizes/font_size = 16
+text = "Press Shift while moving to Dash"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="body_entered" from="Vines 1" to="Vines 1" method="_on_body_entered"]
 [connection signal="body_entered" from="Vines 2" to="Vines 2" method="_on_body_entered"]

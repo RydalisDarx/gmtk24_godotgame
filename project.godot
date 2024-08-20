@@ -10,10 +10,9 @@ config_version=5
 
 [application]
 
-config/name="GMTK 2024"
+config/name="Booting Back Up"
 run/main_scene="res://scenes/screens/TitleScreen.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
 
 [autoload]
 
@@ -26,6 +25,7 @@ TrueMusicPlayer="*res://scenes/miscellaneous/music_player.tscn"
 
 window/size/viewport_width=480
 window/size/viewport_height=270
+window/size/mode=3
 window/size/resizable=false
 window/stretch/mode="viewport"
 

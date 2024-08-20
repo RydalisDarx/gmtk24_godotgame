@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://brkrc6rs36ouy" path="res://assets/stage_1_forest_v3.png" id="1_ncea4"]
 [ext_resource type="TileSet" uid="uid://ba24m0uinmh66" path="res://assets/full_tileset.tres" id="2_7h000"]
 [ext_resource type="PackedScene" uid="uid://c00dnb2j7nvmq" path="res://scenes/world_objects/level_portal.tscn" id="4_64q27"]
-[ext_resource type="PackedScene" uid="uid://cf74236kpuvbg" path="res://scenes/hazard.tscn" id="4_71sfa"]
+[ext_resource type="PackedScene" uid="uid://cf74236kpuvbg" path="res://scenes/world_objects/hazard.tscn" id="4_71sfa"]
 [ext_resource type="Texture2D" uid="uid://cyr8v4x5bkttv" path="res://assets/window_open.png" id="4_wvpwi"]
 [ext_resource type="Texture2D" uid="uid://mghv61jnbruu" path="res://assets/ac_unit.png" id="5_tt6go"]
 [ext_resource type="Texture2D" uid="uid://bk8tpdilu1ybv" path="res://assets/door.png" id="6_monoo"]
@@ -90,7 +90,7 @@ collision_enabled = false
 
 [node name="LevelPortal" parent="." instance=ExtResource("4_64q27")]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(825, -134)
+position = Vector2(825, -135)
 scenename = "EndGame"
 
 [node name="Waterfall Collision" type="Area2D" parent="."]
@@ -167,7 +167,7 @@ texture = ExtResource("6_monoo")
 
 [node name="AcUnit" type="Sprite2D" parent="Background Objects"]
 z_index = -1
-position = Vector2(1435, 36)
+position = Vector2(1438, 32)
 texture = ExtResource("5_tt6go")
 
 [node name="BlaconyTiles5" type="Sprite2D" parent="."]
@@ -227,7 +227,8 @@ scale = Vector2(1, 27.48)
 [node name="Item Acquistion Hitbox2" parent="Collectables" instance=ExtResource("13_etqne")]
 position = Vector2(1348, -369)
 upgrade_name = "bonus_jump"
-reappear_time = 1
+duration = 1.6
+reappear_time = 2
 
 [node name="Hazard6" parent="Collectables" instance=ExtResource("4_71sfa")]
 modulate = Color(1, 1, 1, 0)
