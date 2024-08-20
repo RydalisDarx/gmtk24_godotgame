@@ -1017,9 +1017,10 @@ layout_mode = 2
 size_flags_horizontal = 4
 disabled = true
 texture_normal = ExtResource("4_fl1ah")
-texture_pressed = ExtResource("4_fl1ah")
+texture_pressed = ExtResource("5_tytxr")
 texture_hover = ExtResource("5_tytxr")
 texture_disabled = ExtResource("4_fl1ah")
+texture_focused = ExtResource("5_tytxr")
 
 [node name="QuitButton" type="TextureButton" parent="VBoxContainer"]
 unique_name_in_owner = true
@@ -1031,7 +1032,7 @@ texture_normal = ExtResource("6_ho20h")
 texture_pressed = ExtResource("6_ho20h")
 texture_hover = ExtResource("7_1tmxf")
 texture_disabled = ExtResource("6_ho20h")
-texture_focused = ExtResource("6_ho20h")
+texture_focused = ExtResource("7_1tmxf")
 
 [node name="MusicPlayer" parent="." instance=ExtResource("3_n8row")]
 stream = ExtResource("4_i2iw8")
