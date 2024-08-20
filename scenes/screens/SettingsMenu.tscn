@@ -46,7 +46,8 @@ layout_mode = 2
 offset_top = 27.0
 offset_right = 118.0
 offset_bottom = 43.0
-value = 40.0
+min_value = -80.0
+max_value = 0.0
 
 [node name="BGM" type="Label" parent="Audio Options"]
 layout_mode = 2
@@ -60,7 +61,8 @@ layout_mode = 2
 offset_top = 27.0
 offset_right = 118.0
 offset_bottom = 43.0
-value = 40.0
+min_value = -80.0
+max_value = 0.0
 
 [node name="SFX" type="Label" parent="Audio Options"]
 layout_mode = 2
@@ -74,7 +76,8 @@ layout_mode = 2
 offset_top = 27.0
 offset_right = 118.0
 offset_bottom = 43.0
-value = 40.0
+min_value = -80.0
+max_value = 0.0
 
 [node name="confirm" type="Button" parent="."]
 layout_mode = 0
@@ -86,3 +89,8 @@ scale = Vector2(0.632412, 0.662364)
 theme_override_fonts/font = ExtResource("3_qfmv8")
 theme_override_font_sizes/font_size = 32
 text = "Title Screen"
+
+[connection signal="value_changed" from="Audio Options/Master/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="Audio Options/BGM/HSlider2" to="." method="_on_h_slider_2_value_changed"]
+[connection signal="value_changed" from="Audio Options/SFX/HSlider3" to="." method="_on_h_slider_3_value_changed"]
+[connection signal="pressed" from="confirm" to="." method="_on_confirm_pressed"]

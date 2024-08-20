@@ -136,41 +136,34 @@ collision_enabled = false
 [node name="items" type="Node2D" parent="."]
 z_index = 1
 position = Vector2(801.651, 482.037)
-scale = Vector2(0.237056, 0.237056)
 
 [node name="DJ 1" parent="items" instance=ExtResource("5_utvod")]
-position = Vector2(-3111.72, 497.617)
-scale = Vector2(1, 1)
+position = Vector2(-738.651, 114.963)
 upgrade_name = "double_jump"
 reappear_time = 2
 
 [node name="DJ 2" parent="items" instance=ExtResource("5_utvod")]
-position = Vector2(-2133.04, 160.144)
-scale = Vector2(1, 1)
+position = Vector2(-103.651, -10.037)
 upgrade_name = "double_jump"
 reappear_time = 2
 
 [node name="DJ 3" parent="items" instance=ExtResource("5_utvod")]
-position = Vector2(-479.427, -8.59289)
-scale = Vector2(1, 1)
+position = Vector2(-513.651, 32.963)
 upgrade_name = "double_jump"
 reappear_time = 2
 
 [node name="DJ 4" parent="items" instance=ExtResource("5_utvod")]
-position = Vector2(-479.427, -346.066)
-scale = Vector2(1, 1)
+position = Vector2(-423.651, -306.037)
 upgrade_name = "double_jump"
 reappear_time = 2
 
 [node name="DJ 5" parent="items" instance=ExtResource("5_utvod")]
-position = Vector2(-1867.28, -1282.55)
-scale = Vector2(1, 1)
+position = Vector2(-105.651, -83.037)
 upgrade_name = "double_jump"
 reappear_time = 2
 
 [node name="DJ 6" parent="items" instance=ExtResource("5_utvod")]
-position = Vector2(-479.427, -751.033)
-scale = Vector2(1, 1)
+position = Vector2(-113.651, -199.037)
 upgrade_name = "wall_cling"
 permanent = true
 reappear_time = 2
